@@ -55,6 +55,7 @@ public class StarlingRoot extends Sprite {
             btnCancel.x = btnRepeat.x = btnMulti.x = btnSimple.x;
             btnCancel.y = 340;
             btnCancel.addEventListener(TouchEvent.TOUCH, onCancelClick);
+            btnCancel.visible = false;
             addChild(btnCancel);
         }
     }
@@ -76,6 +77,7 @@ public class StarlingRoot extends Sprite {
     private function onRepeatClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnRepeat);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
+            btnCancel.visible = true;
             vibrator.vibrate(0, [0, 100, 2000, 500], 0);
         }
     }
@@ -83,6 +85,7 @@ public class StarlingRoot extends Sprite {
     private function onCancelClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnCancel);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
+            btnCancel.visible = false;
             vibrator.cancel();
         }
     }

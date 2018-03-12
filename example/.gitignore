@@ -21,6 +21,7 @@ cache/
 .tps
 
 
+
 # Created by https://www.gitignore.io/api/intellij
 
 ### Intellij ###
@@ -73,6 +74,3 @@ fabric.properties
 # modules.xml
 # .idea/misc.xml
 # *.ipr
-
-/ios_dependencies_bak/
-/sprite-sheet/

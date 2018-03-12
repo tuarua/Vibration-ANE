@@ -109,6 +109,7 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/intermediate-jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/javaPrecompile" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/jniLibs" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/lint" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/manifests" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/res" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/rs" />
@@ -122,10 +123,10 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 27 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="__local_aars__:D.\dev\flash\Vibration-ANE\native_library\android\VibrationANE\app\libs\runtimeClasses.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="__local_aars__:/Users/User/flash/Vibration-ANE/native_library/android/VibrationANE/app/libs/frekotlin-1.2.30.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="org.jetbrains.kotlin:kotlin-stdlib:1.2.30@jar" level="project" />
     <orderEntry type="library" name="org.jetbrains:annotations:13.0@jar" level="project" />
-    <orderEntry type="library" name="__local_aars__:D.\dev\flash\Vibration-ANE\native_library\android\VibrationANE\app\libs\frekotlin-1.2.30.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="__local_aars__:D.\dev\flash\Vibration-ANE\native_library\android\VibrationANE\app\libs\FlashRuntimeExtensions.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="__local_aars__:/Users/User/flash/Vibration-ANE/native_library/android/VibrationANE/app/libs/runtimeClasses.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="__local_aars__:/Users/User/flash/Vibration-ANE/native_library/android/VibrationANE/app/libs/FlashRuntimeExtensions.jar:unspecified@jar" level="project" />
   </component>
 </module>
