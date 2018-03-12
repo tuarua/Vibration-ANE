@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="Flex" version="4">
-  <component name="FlexBuildConfigurationManager" active="iOS Simulator">
+  <component name="FlexBuildConfigurationManager" active="iOS Device">
     <configurations>
-      <configuration name="Android Device" target-platform="Mobile" pure-as="true" main-class="Main" output-file="Main.swf" output-folder="$MODULE_DIR$/bin-release/android">
+      <configuration name="Android Device" target-platform="Mobile" pure-as="true" main-class="Main" output-file="Main.swf" output-folder="$MODULE_DIR$/bin-release">
         <dependencies>
           <entries>
             <entry library-name="starling" library-level="project">
@@ -26,7 +26,7 @@
         <packaging-android enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/src/Main-app.xml" package-file-name="Main" />
         <packaging-ios use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/src/Main-app.xml" package-file-name="Main" />
       </configuration>
-      <configuration name="iOS Simulator" target-platform="Mobile" pure-as="true" main-class="Main" output-file="iOS_Simulator.swf" output-folder="$MODULE_DIR$/bin-release/simulator">
+      <configuration name="iOS Simulator" target-platform="Mobile" pure-as="true" main-class="Main" output-file="iOS_Simulator.swf" output-folder="$MODULE_DIR$/bin-release">
         <dependencies>
           <entries>
             <entry library-name="starling" library-level="project">
@@ -57,7 +57,7 @@
           <AirSigningOptions keystore-path="$USER_HOME$/Documents/appleCertsProv/2018/dev/tua_rua_dev_2018.p12" provisioning-profile-path="$USER_HOME$/Documents/appleCertsProv/2018/dev/Tua_Rua_Dev_Provisioning-2.mobileprovision" />
         </packaging-ios>
       </configuration>
-      <configuration name="iOS Device" target-platform="Mobile" pure-as="true" main-class="Main" output-file="iOS_Device.swf" output-folder="$MODULE_DIR$/bin-release/device">
+      <configuration name="iOS Device" target-platform="Mobile" pure-as="true" main-class="Main" output-file="iOS_Device.swf" output-folder="$MODULE_DIR$/bin-release">
         <dependencies>
           <entries>
             <entry library-name="starling" library-level="project">
