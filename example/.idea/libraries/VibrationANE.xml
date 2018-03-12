@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="VibrationANE" type="flex">
+    <CLASSES>
+      <root url="jar://$DOCUMENTS$/Vibration-ANE/native_extension/ane/VibrationANE.ane!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

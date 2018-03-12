@@ -21,7 +21,7 @@ import flash.events.EventDispatcher;
 public class VibrationANE extends EventDispatcher {
     private var _isInited:Boolean;
     private static var _vibrator:VibrationANE;
-
+    /** @private */
     public function VibrationANE() {
         if (_vibrator) {
             throw new Error(VibrationANEContext.NAME + " is a singleton, use .mapView");

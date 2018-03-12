@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="Flex" version="4">
-  <component name="FlexBuildConfigurationManager" active="Android Device">
+  <component name="FlexBuildConfigurationManager" active="iOS Simulator">
     <configurations>
-      <configuration name="Android Device" target-platform="Mobile" pure-as="true" main-class="Main" output-file="Main.swf" output-folder="$MODULE_DIR$/bin-release">
+      <configuration name="Android Device" target-platform="Mobile" pure-as="true" main-class="Main" output-file="Main.swf" output-folder="$MODULE_DIR$/bin-release/android">
         <dependencies>
           <entries>
-            <entry library-id="ac5a87b0-356f-4812-918a-db1e95bc7084">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-id="046407c4-a926-4cb3-9036-13dd0c14abd5">
-              <dependency linkage="Merged" />
-            </entry>
             <entry library-name="starling" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.tuarua.frekotlin" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="VibrationANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -26,6 +26,68 @@
         <packaging-android enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/src/Main-app.xml" package-file-name="Main" />
         <packaging-ios use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/src/Main-app.xml" package-file-name="Main" />
       </configuration>
+      <configuration name="iOS Simulator" target-platform="Mobile" pure-as="true" main-class="Main" output-file="iOS_Simulator.swf" output-folder="$MODULE_DIR$/bin-release/simulator">
+        <dependencies>
+          <entries>
+            <entry library-name="starling" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.tuarua.frekotlin" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="VibrationANE" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+          </entries>
+          <sdk name="AIRSDK_29" />
+        </dependencies>
+        <compiler-options>
+          <map>
+            <entry key="compiler.locale" value="en_US" />
+          </map>
+        </compiler-options>
+        <packaging-air-desktop />
+        <packaging-android use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/src/Main-app.xml" package-file-name="iOS_Simulator" />
+        <packaging-ios enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/src/Main-app.xml" package-file-name="iOS_Simulator">
+          <files-to-package>
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/simulator" path-in-package="." />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/src/Assets.car" path-in-package="Assets.car" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/system" path-in-package="." />
+          </files-to-package>
+          <AirSigningOptions keystore-path="$USER_HOME$/Documents/appleCertsProv/2018/dev/tua_rua_dev_2018.p12" provisioning-profile-path="$USER_HOME$/Documents/appleCertsProv/2018/dev/Tua_Rua_Dev_Provisioning-2.mobileprovision" />
+        </packaging-ios>
+      </configuration>
+      <configuration name="iOS Device" target-platform="Mobile" pure-as="true" main-class="Main" output-file="iOS_Device.swf" output-folder="$MODULE_DIR$/bin-release/device">
+        <dependencies>
+          <entries>
+            <entry library-name="starling" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.tuarua.frekotlin" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="VibrationANE" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+          </entries>
+          <sdk name="AIRSDK_29" />
+        </dependencies>
+        <compiler-options>
+          <map>
+            <entry key="compiler.locale" value="en_US" />
+          </map>
+        </compiler-options>
+        <packaging-air-desktop />
+        <packaging-android use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/src/Main-app.xml" package-file-name="iOS_Device" />
+        <packaging-ios enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/src/Main-app.xml" package-file-name="iOS_Device">
+          <files-to-package>
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/device" path-in-package="." />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/src/Assets.car" path-in-package="Assets.car" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/system" path-in-package="." />
+          </files-to-package>
+          <AirSigningOptions keystore-path="$USER_HOME$/Documents/appleCertsProv/2018/dev/tua_rua_dev_2018.p12" provisioning-profile-path="$USER_HOME$/Documents/appleCertsProv/2018/dev/Tua_Rua_Dev_Provisioning-2.mobileprovision" />
+        </packaging-ios>
+      </configuration>
     </configurations>
     <compiler-options />
   </component>
@@ -36,26 +98,8 @@
     </content>
     <orderEntry type="jdk" jdkName="AIRSDK_29" jdkType="Flex SDK Type (new)" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library" exported="">
-      <library type="flex">
-        <properties id="ac5a87b0-356f-4812-918a-db1e95bc7084" />
-        <CLASSES>
-          <root url="jar://$DOCUMENTS$/Vibration-ANE/native_extension/ane/VibrationANE.ane!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" exported="">
-      <library type="flex">
-        <properties id="046407c4-a926-4cb3-9036-13dd0c14abd5" />
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/android_dependencies/com.tuarua.frekotlin.ane!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
     <orderEntry type="library" exported="" name="starling" level="project" />
+    <orderEntry type="library" exported="" name="com.tuarua.frekotlin" level="project" />
+    <orderEntry type="library" exported="" name="VibrationANE" level="project" />
   </component>
 </module>
