@@ -21,6 +21,7 @@ PS get_android_dependencies.ps1
 ````xml
 <extensions>
 <extensionID>com.tuarua.frekotlin</extensionID>
+<extensionID>com.tuarua.VibrationANE</extensionID>
 ...
 </extensions>
 `````
