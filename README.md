@@ -38,7 +38,7 @@ You will also need to include the following in your app manifest. Update accordi
 
 ## iOS
 
-### The ANE + Dependencies
+#### The ANE + Dependencies
 
 N.B. You must use a Mac to build an iOS app using this ANE. Windows is NOT supported.
 
