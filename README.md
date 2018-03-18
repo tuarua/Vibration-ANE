@@ -42,7 +42,7 @@ You will also need to include the following in your app manifest. Update accordi
 
 N.B. You must use a Mac to build an iOS app using this ANE. Windows is NOT supported.
 
-From the command line cd into /example-mobile and run:
+From the command line cd into /example and run:
 
 ````shell
 bash get_ios_dependencies.sh
