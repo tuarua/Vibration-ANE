@@ -3,7 +3,9 @@
     <CLASSES>
       <root url="jar://$DOCUMENTS$/Vibration-ANE/native_extension/ane/VibrationANE.ane!/" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="https://tuarua.github.io/asdocs/vibrationane/index.html" />
+    </JAVADOC>
     <SOURCES />
   </library>
 </component>

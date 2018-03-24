@@ -59,7 +59,7 @@ public class VibrationANE extends EventDispatcher {
      * </p>
      *
      * @param milliseconds the number of milliseconds to vibrate. Set to 0 when using a pattern. Ignored on iOS
-     * @param pattern an array of longs of times for which to turn the vibrator on or off. Ignored on iOS
+     * @param pattern an array of times for which to turn the vibrator on or off. Ignored on iOS
      * @param repeat the index into pattern at which to repeat, or -1 if
      *        you don't want to repeat. Ignored on iOS
      */

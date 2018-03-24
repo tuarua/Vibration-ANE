@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><apiPackage id="com.tuarua"><apiName>com.tuarua</apiName><apiDetail/><apiClassifier id="com.tuarua:VibrationANE"><apiName>VibrationANE</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>flash.events:EventDispatcher</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiOperation id="com.tuarua:VibrationANE:cancel"><apiName>cancel</apiName><shortdesc> Turn the vibrator off.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn></apiOperationDef><apiDesc> Turn the vibrator off. </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua:VibrationANE:dispose"><apiName>dispose</apiName><shortdesc/><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiStatic/><apiReturn><apiType value="void"/></apiReturn></apiOperationDef></apiOperationDetail></apiOperation><apiOperation id="com.tuarua:VibrationANE:vibrate"><apiName>vibrate</apiName><shortdesc>
+     Vibrate with a given pattern.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>milliseconds</apiItemName><apiType value="int"/><apiData>0</apiData><apiDesc>the number of milliseconds to vibrate. Set to 0 when using a pattern. Ignored on iOS
+     </apiDesc></apiParam><apiParam><apiItemName>pattern</apiItemName><apiType value="Array"/><apiData>null</apiData><apiDesc>an array of times for which to turn the vibrator on or off. Ignored on iOS
+     </apiDesc></apiParam><apiParam><apiItemName>repeat</apiItemName><apiType value="int"/><apiData>-1</apiData><apiDesc>the index into pattern at which to repeat, or -1 if
+            you don't want to repeat. Ignored on iOS
+     </apiDesc></apiParam></apiOperationDef><apiDesc>
+     Vibrate with a given pattern.
+     
+     <p>
+     Pass in an array of ints that are the durations for which to turn on or off
+     the vibrator in milliseconds.  The first value indicates the number of milliseconds
+     to wait before turning the vibrator on.  The next value indicates the number of milliseconds
+     for which to keep the vibrator on before turning it off.  Subsequent values alternate
+     between durations in milliseconds to turn the vibrator off or to turn the vibrator on.
+     </p><p>
+     To cause the pattern to repeat, pass the index into the pattern array at which
+     to start the repeat, or -1 to disable repeating.
+     </p>
+     
+     </apiDesc></apiOperationDetail></apiOperation><apiValue id="com.tuarua:VibrationANE:hasVibrator:get"><apiName>hasVibrator</apiName><shortdesc>
+     Check whether the hardware has a vibrator.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Boolean"/></apiValueDef><apiDesc>
+     Check whether the hardware has a vibrator.
+     
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua:VibrationANE:isInited:get"><apiName>isInited</apiName><shortdesc> </shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Boolean"/></apiValueDef><apiDesc> </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua:VibrationANE:vibrator:get"><apiName>vibrator</apiName><shortdesc/><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiStatic/><apiValueAccess value="read"/><apiValueClassifier>com.tuarua:VibrationANE</apiValueClassifier></apiValueDef></apiValueDetail></apiValue></apiClassifier></apiPackage>

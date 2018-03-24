@@ -16,7 +16,7 @@
 package com.tuarua {
 import flash.events.StatusEvent;
 import flash.external.ExtensionContext;
-
+/** @private */
 public class VibrationANEContext {
     internal static const NAME:String = "VibrationANE";
     internal static const TRACE:String = "TRACE";
