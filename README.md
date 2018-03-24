@@ -2,6 +2,8 @@
 
 Vibration Adobe Air Native Extension for iOS 9.0+ and Android 19+.    
 
+[ASDocs Documentation](https://tuarua.github.io/asdocs/vibrationane/index.html)
+
 -------------
 
 ## Android
@@ -38,7 +40,7 @@ You will also need to include the following in your app manifest. Update accordi
 
 ## iOS
 
-### The ANE + Dependencies
+#### The ANE + Dependencies
 
 N.B. You must use a Mac to build an iOS app using this ANE. Windows is NOT supported.
 
