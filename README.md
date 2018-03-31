@@ -60,7 +60,8 @@ You will need:
 - IntelliJ IDEA / Flash Builder
 - AIR 29
 - Android Studio 3 if you wish to edit the Android source
-- Xcode 9.1 if you wish to edit the iOS source
+- Xcode 9.3
+- Xcode 9.1 for iOS Simulator
 - wget on OSX
 - Powershell on Windows
 
