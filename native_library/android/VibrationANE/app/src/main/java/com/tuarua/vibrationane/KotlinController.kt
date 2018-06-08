@@ -22,35 +22,9 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.VibrationEffect
 import android.os.Vibrator
-import com.adobe.fre.FREArray
 import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
 import com.tuarua.frekotlin.*
-
-// TODO bring into FreKotlin library
-fun LongArray(freArray: FREArray?): LongArray? {
-    if (freArray != null) {
-        val count = freArray.length.toInt()
-        val kotArr: LongArray = kotlin.LongArray(count)
-        for (i in 0 until count) {
-            val v = Long(freArray.getObjectAt(i.toLong()))
-            when {
-                v != null -> kotArr[i] = v
-                else -> return null
-            }
-        }
-        return kotArr
-    }
-    return null
-}
-
-fun LongArray(freObject: FREObject?): LongArray? {
-    if (freObject != null) {
-        return LongArray(FREArray(freObject))
-    }
-    return null
-}
-// TODO End
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST")
 class KotlinController : FreKotlinMainController {
@@ -70,13 +44,10 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun vibrate(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 2 } ?: return ArgCountException().getError(Thread.currentThread().stackTrace)
-        val milliseconds = Long(argv[0])
-                ?: return FreException("cannot convert milliseconds").getError(arrayOf())
-        val pattern = LongArray(argv[1])
-                ?: return FreException("cannot convert pattern").getError(arrayOf())
-        val repeat = Int(argv[2])
-                ?: return FreException("cannot convert repeat").getError(arrayOf())
+        argv.takeIf { argv.size > 2 } ?: return FreArgException("vibrate")
+        val milliseconds = Long(argv[0]) ?: return FreConversionException("milliseconds")
+        val pattern = LongArray(argv[1]) ?: return FreConversionException("pattern")
+        val repeat = Int(argv[2]) ?: return FreConversionException("repeat")
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             when {

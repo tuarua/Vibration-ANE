@@ -15,7 +15,7 @@
               <dependency linkage="Merged" />
             </entry>
           </entries>
-          <sdk name="AIRSDK_29" />
+          <sdk name="AIRSDK_30" />
         </dependencies>
         <compiler-options>
           <map>
@@ -23,7 +23,15 @@
           </map>
         </compiler-options>
         <packaging-air-desktop />
-        <packaging-android enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/src/Main-app.xml" package-file-name="Main" />
+        <packaging-android enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/src/Main-app.xml" package-file-name="Main">
+          <files-to-package>
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/system/AppIcon83.5x83.5@2x~ipad.png" path-in-package="AppIcon83.5x83.5@2x~ipad.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/system/AppIcon76x76~ipad.png" path-in-package="AppIcon76x76~ipad.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/system/AppIcon76x76@2x~ipad.png" path-in-package="AppIcon76x76@2x~ipad.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/system/AppIcon60x60@3x.png" path-in-package="AppIcon60x60@3x.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/system/AppIcon60x60@2x.png" path-in-package="AppIcon60x60@2x.png" />
+          </files-to-package>
+        </packaging-android>
         <packaging-ios use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/src/Main-app.xml" package-file-name="Main" />
       </configuration>
       <configuration name="iOS Simulator" target-platform="Mobile" pure-as="true" main-class="Main" output-file="iOS_Simulator.swf" output-folder="$MODULE_DIR$/bin-release">
@@ -39,7 +47,7 @@
               <dependency linkage="Merged" />
             </entry>
           </entries>
-          <sdk name="AIRSDK_29" />
+          <sdk name="AIRSDK_30" />
         </dependencies>
         <compiler-options>
           <map>
@@ -70,7 +78,7 @@
               <dependency linkage="Merged" />
             </entry>
           </entries>
-          <sdk name="AIRSDK_29" />
+          <sdk name="AIRSDK_30" />
         </dependencies>
         <compiler-options>
           <map>
@@ -96,7 +104,7 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="AIRSDK_29" jdkType="Flex SDK Type (new)" />
+    <orderEntry type="jdk" jdkName="AIRSDK_30" jdkType="Flex SDK Type (new)" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="starling" level="project" />
     <orderEntry type="library" exported="" name="com.tuarua.frekotlin" level="project" />
