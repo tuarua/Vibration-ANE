@@ -21,7 +21,7 @@ import com.tuarua.vibrationane.KotlinController;
 
 @SuppressWarnings("WeakerAccess")
 public class VibrationANE implements FREExtension {
-    private String NAME = "com.tuarua.VibrationANE";
+    private final String NAME = "com.tuarua.VibrationANE";
     private static final String[] FUNCTIONS = {
              "init"
             ,"vibrate"

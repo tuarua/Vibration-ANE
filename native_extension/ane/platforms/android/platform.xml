@@ -2,7 +2,7 @@
 <platform xmlns="http://ns.adobe.com/air/extension/19.0">
 	<packagedResources>
 		<packagedResource>
-			<packageName>com.tuarua.VibrationANE</packageName>
+			<packageName>com.tuarua.vibrationane</packageName>
 			<folderName>com.tuarua.VibrationANE-res</folderName>
 		</packagedResource>
 	</packagedResources>
