@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9055E18E217141C80006CD4C /* TapticController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9055E18D217141C80006CD4C /* TapticController.swift */; };
+		906787BF217017D200100455 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906787BE217017D200100455 /* UIDevice.swift */; };
 		CE05603F1FB25CE200D06976 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
 		CE0560401FB25CE200D06976 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
 		CE0560431FB25D1B00D06976 /* SwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0560411FB25D1B00D06976 /* SwiftController.swift */; };
@@ -30,6 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9055E18D217141C80006CD4C /* TapticController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapticController.swift; sourceTree = "<group>"; };
+		906787BE217017D200100455 /* UIDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
 		CE05603E1FB25CE200D06976 /* FreSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FreSwift.framework; path = Carthage/Build/iOS/FreSwift.framework; sourceTree = "<group>"; };
 		CE0560411FB25D1B00D06976 /* SwiftController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftController.swift; sourceTree = "<group>"; };
 		CE05604D1FB25E8E00D06976 /* FreMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreMacros.h; sourceTree = "<group>"; };
@@ -64,6 +68,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		906787BD217017BE00100455 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				906787BE217017D200100455 /* UIDevice.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		CE05603D1FB25CD100D06976 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -94,11 +106,13 @@
 		CEBD78C52057192600ABE05A /* VibrationANE */ = {
 			isa = PBXGroup;
 			children = (
+				906787BD217017BE00100455 /* Extensions */,
 				CEBD78C72057195500ABE05A /* Misc */,
 				CEBD78C62057194000ABE05A /* Headers */,
 				CE0560411FB25D1B00D06976 /* SwiftController.swift */,
 				CE87F4781FB259DB005CF7DF /* VibrationANE.m */,
 				CEBD78C82057198700ABE05A /* SwiftController+FreSwift.swift */,
+				9055E18D217141C80006CD4C /* TapticController.swift */,
 			);
 			path = VibrationANE;
 			sourceTree = "<group>";
@@ -237,14 +251,14 @@
 		};
 		CEDDADE01FBFB84900D6EB5F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = ../../../native_extension/ane/build_mobile.sh;
 		};
@@ -264,6 +278,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE0560431FB25D1B00D06976 /* SwiftController.swift in Sources */,
+				906787BF217017D200100455 /* UIDevice.swift in Sources */,
+				9055E18E217141C80006CD4C /* TapticController.swift in Sources */,
 				CEBD78C92057198700ABE05A /* SwiftController+FreSwift.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

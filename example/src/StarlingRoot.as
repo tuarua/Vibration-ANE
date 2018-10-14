@@ -1,11 +1,15 @@
 package {
 
 import com.tuarua.VibrationANE;
+import com.tuarua.android;
+import com.tuarua.ios;
 import com.tuarua.utils.os;
+import com.tuarua.vibration.ios.NotificationFeedbackGenerator;
+import com.tuarua.vibration.ios.NotificationFeedbackType;
+import com.tuarua.vibration.ios.SystemSoundID;
 
 import flash.desktop.NativeApplication;
 import flash.events.Event;
-import flash.system.Capabilities;
 
 import starling.display.Sprite;
 import starling.events.Touch;
@@ -20,8 +24,8 @@ public class StarlingRoot extends Sprite {
     private var btnMulti:SimpleButton = new SimpleButton("Multi Vibrate");
     private var btnRepeat:SimpleButton = new SimpleButton("Repeat Vibrate");
     private var btnCancel:SimpleButton = new SimpleButton("Cancel Vibrate");
+    private var btnTaptic:SimpleButton = new SimpleButton("Notification Taptic");
     private var vibrator:VibrationANE;
-
 
     public function StarlingRoot() {
         TextField.registerCompositor(Fonts.getFont("fira-sans-semi-bold-13"), "Fira Sans Semi-Bold 13");
@@ -36,13 +40,12 @@ public class StarlingRoot extends Sprite {
         }
     }
 
-
     private function initMenu():void {
         btnSimple.x = (stage.stageWidth - 200) * 0.5;
         btnSimple.y = 100;
         btnSimple.addEventListener(TouchEvent.TOUCH, onBasicClick);
         addChild(btnSimple);
-        
+
         if (os.isAndroid) {
             btnMulti.y = 180;
             btnMulti.addEventListener(TouchEvent.TOUCH, onMultiClick);
@@ -57,20 +60,38 @@ public class StarlingRoot extends Sprite {
             btnCancel.addEventListener(TouchEvent.TOUCH, onCancelClick);
             btnCancel.visible = false;
             addChild(btnCancel);
+        } else if (vibrator.hasTapticEngine) {
+            btnTaptic.y = 180;
+            btnTaptic.addEventListener(TouchEvent.TOUCH, onTapticClick);
+            addChild(btnTaptic);
+        }
+    }
+
+    private function onTapticClick(event:TouchEvent):void {
+        var touch:Touch = event.getTouch(btnTaptic);
+        if (touch != null && touch.phase == TouchPhase.ENDED) {
+            var notificationFeedbackGenerator:NotificationFeedbackGenerator = new NotificationFeedbackGenerator();
+            notificationFeedbackGenerator.prepare();
+            notificationFeedbackGenerator.notificationOccurred(NotificationFeedbackType.SUCCESS);
+            notificationFeedbackGenerator.release();
         }
     }
 
     private function onBasicClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnSimple);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
-            vibrator.vibrate(150);
+            if (os.isAndroid) {
+                vibrator.android::vibrate(150);
+            } else if (os.isIos) {
+                vibrator.ios::vibrate(SystemSoundID.DEFAULT);
+            }
         }
     }
 
     private function onMultiClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnMulti);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
-            vibrator.vibrate(0, [0, 100, 1000, 300]);
+            vibrator.android::vibrate(0, [0, 100, 1000, 300]);
         }
     }
 
@@ -78,7 +99,7 @@ public class StarlingRoot extends Sprite {
         var touch:Touch = event.getTouch(btnRepeat);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
             btnCancel.visible = true;
-            vibrator.vibrate(0, [0, 100, 2000, 500], 0);
+            vibrator.android::vibrate(0, [0, 100, 2000, 500], 0);
         }
     }
 

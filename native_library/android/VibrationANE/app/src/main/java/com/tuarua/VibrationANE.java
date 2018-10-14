@@ -19,7 +19,7 @@ import com.adobe.fre.FREContext;
 import com.adobe.fre.FREExtension;
 import com.tuarua.vibrationane.KotlinController;
 
-@SuppressWarnings("WeakerAccess")
+@SuppressWarnings("ALL")
 public class VibrationANE implements FREExtension {
     private final String NAME = "com.tuarua.VibrationANE";
     private static final String[] FUNCTIONS = {
@@ -27,7 +27,20 @@ public class VibrationANE implements FREExtension {
             ,"vibrate"
             ,"cancel"
             ,"hasVibrator"
+            ,"prepareNotification"
+            ,"releaseNotification"
+            ,"notificationOccurred"
+            ,"initImpact"
+            ,"prepareImpact"
+            ,"releaseImpact"
+            ,"impactOccurred"
+            ,"prepareSelection"
+            ,"releaseSelection"
+            ,"selectionChanged"
+            ,"hasHapticFeedback"
+            ,"hasTapticEngine"
     };
+    
 
     public static VibrationANEContext extensionContext;
 

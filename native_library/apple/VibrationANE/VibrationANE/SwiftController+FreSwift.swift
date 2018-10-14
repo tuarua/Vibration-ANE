@@ -16,7 +16,6 @@ import Foundation
 import FreSwift
 
 extension SwiftController: FreSwiftMainController {
-    
     // must have this function !!
     // Make sure these funcs match those in MLANE.m
     @objc public func getFunctions(prefix: String) -> [String] {
@@ -24,16 +23,25 @@ extension SwiftController: FreSwiftMainController {
         functionsToSet["\(prefix)vibrate"] = vibrate
         functionsToSet["\(prefix)cancel"] = cancel
         functionsToSet["\(prefix)hasVibrator"] = hasVibrator
-        
+        functionsToSet["\(prefix)prepareNotification"] = prepareNotification
+        functionsToSet["\(prefix)releaseNotification"] = releaseNotification
+        functionsToSet["\(prefix)notificationOccurred"] = notificationOccurred
+        functionsToSet["\(prefix)initImpact"] = initImpact
+        functionsToSet["\(prefix)prepareImpact"] = prepareImpact
+        functionsToSet["\(prefix)releaseImpact"] = releaseImpact
+        functionsToSet["\(prefix)impactOccurred"] = impactOccurred
+        functionsToSet["\(prefix)prepareSelection"] = prepareSelection
+        functionsToSet["\(prefix)releaseSelection"] = releaseSelection
+        functionsToSet["\(prefix)selectionChanged"] = selectionChanged
+        functionsToSet["\(prefix)hasHapticFeedback"] = hasHapticFeedback
+        functionsToSet["\(prefix)hasTapticEngine"] = hasTapticEngine
+
         var arr: [String] = []
         for key in functionsToSet.keys {
             arr.append(key)
         }
         
         return arr
-    }
-    
-    @objc public func dispose() {
     }
     
     // Must have this function. It exposes the methods to our entry ObjC.

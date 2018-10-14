@@ -26,7 +26,7 @@ import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
 import com.tuarua.frekotlin.*
 
-@Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST")
+@Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PropertyName")
 class KotlinController : FreKotlinMainController {
     private var vibrator: Vibrator? = null
     private var packageManager: PackageManager? = null
@@ -73,6 +73,51 @@ class KotlinController : FreKotlinMainController {
     fun hasVibrator(ctx: FREContext, argv: FREArgv): FREObject? {
         return vibrator?.hasVibrator()?.toFREObject() ?: false.toFREObject()
     }
+
+    fun notificationOccurred(ctx: FREContext, argv: FREArgv): FREObject? {
+        return null
+    }
+
+    fun releaseNotification(ctx: FREContext, argv: FREArgv): FREObject? {
+        return null
+    }
+
+    fun prepareNotification(ctx: FREContext, argv: FREArgv): FREObject? {
+        return null
+    }
+
+    fun prepareImpact(ctx: FREContext, argv: FREArgv): FREObject? {
+        return null
+    }
+
+    fun initImpact(ctx: FREContext, argv: FREArgv): FREObject? {
+        return null
+    }
+
+    fun releaseImpact(ctx: FREContext, argv: FREArgv): FREObject? {
+        return null
+    }
+
+    fun prepareSelection(ctx: FREContext, argv: FREArgv): FREObject? {
+        return null
+    }
+
+    fun releaseSelection(ctx: FREContext, argv: FREArgv): FREObject? {
+        return null
+    }
+
+    fun selectionChanged(ctx: FREContext, argv: FREArgv): FREObject? {
+        return null
+    }
+
+    fun hasHapticFeedback(ctx: FREContext, argv: FREArgv): FREObject? {
+        return false.toFREObject()
+    }
+
+    fun hasTapticEngine(ctx: FREContext, argv: FREArgv): FREObject? {
+        return false.toFREObject()
+    }
+
 
     private fun hasRequiredPermissions(): Boolean {
         val pi = packageInfo ?: return false
