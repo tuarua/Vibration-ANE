@@ -58,9 +58,9 @@ After the ipa is created unzip it and confirm there is a "Frameworks" folder in 
 You will need:
 
 - IntelliJ IDEA / Flash Builder
-- AIR 29
+- AIR 31
 - Android Studio 3 if you wish to edit the Android source
-- Xcode 9.3
+- Xcode 9.4.1
 - Xcode 9.1 for iOS Simulator
 - wget on OSX
 - Powershell on Windows
