@@ -40,6 +40,18 @@ CONTEXT_INIT(TRVIB) {
         ,MAP_FUNCTION(TRVIB, vibrate)
         ,MAP_FUNCTION(TRVIB, cancel)
         ,MAP_FUNCTION(TRVIB, hasVibrator)
+        ,MAP_FUNCTION(TRVIB, prepareNotification)
+        ,MAP_FUNCTION(TRVIB, releaseNotification)
+        ,MAP_FUNCTION(TRVIB, notificationOccurred)
+        ,MAP_FUNCTION(TRVIB, initImpact)
+        ,MAP_FUNCTION(TRVIB, prepareImpact)
+        ,MAP_FUNCTION(TRVIB, releaseImpact)
+        ,MAP_FUNCTION(TRVIB, impactOccurred)
+        ,MAP_FUNCTION(TRVIB, prepareSelection)
+        ,MAP_FUNCTION(TRVIB, releaseSelection)
+        ,MAP_FUNCTION(TRVIB, selectionChanged)
+        ,MAP_FUNCTION(TRVIB, hasHapticFeedback)
+        ,MAP_FUNCTION(TRVIB, hasTapticEngine)
     };
     
     /**************************************************************************/
