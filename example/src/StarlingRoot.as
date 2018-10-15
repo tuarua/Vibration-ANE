@@ -35,6 +35,8 @@ public class StarlingRoot extends Sprite {
     public function start():void {
         vibrator = VibrationANE.vibrator;
         trace("vibrator.hasVibrator", vibrator.hasVibrator);
+        trace("vibrator.hasTapticEngine", vibrator.hasTapticEngine);
+        trace("vibrator.hasHapticFeedback", vibrator.hasHapticFeedback);
         if (vibrator.hasVibrator) {
             initMenu();
         }
@@ -60,7 +62,7 @@ public class StarlingRoot extends Sprite {
             btnCancel.addEventListener(TouchEvent.TOUCH, onCancelClick);
             btnCancel.visible = false;
             addChild(btnCancel);
-        } else if (vibrator.hasTapticEngine) {
+        } else if (vibrator.hasHapticFeedback) {
             btnTaptic.y = 180;
             btnTaptic.addEventListener(TouchEvent.TOUCH, onTapticClick);
             addChild(btnTaptic);
@@ -83,7 +85,7 @@ public class StarlingRoot extends Sprite {
             if (os.isAndroid) {
                 vibrator.android::vibrate(150);
             } else if (os.isIos) {
-                vibrator.ios::vibrate(SystemSoundID.DEFAULT);
+                vibrator.ios::vibrate(vibrator.hasTapticEngine ? SystemSoundID.POP : SystemSoundID.DEFAULT);
             }
         }
     }
