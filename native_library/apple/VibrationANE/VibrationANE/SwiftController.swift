@@ -63,13 +63,13 @@ public class SwiftController: NSObject {
     }
     
     func prepareNotification(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard #available(iOS 10.0, *), isPhone else { return nil }
+        guard #available(iOS 10.0, *), isPhone, UIDevice.current.hasHapticFeedback else { return nil }
         tapticController.prepareNotification()
         return nil
     }
     
     func releaseNotification(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard #available(iOS 10.0, *), isPhone else { return nil }
+        guard #available(iOS 10.0, *), isPhone, UIDevice.current.hasHapticFeedback else { return nil }
         tapticController.releaseNotification()
         return nil
     }
@@ -80,13 +80,13 @@ public class SwiftController: NSObject {
             else {
                 return FreArgError(message: "notificationOccurred").getError(#file, #line, #column)
         }
-        guard #available(iOS 10.0, *), isPhone, UIDevice.current.hasTapticEngine else { return nil }
+        guard #available(iOS 10.0, *), isPhone, UIDevice.current.hasHapticFeedback else { return nil }
         tapticController.notificationOccurred(type: type)
         return nil
     }
     
     func initImpact(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard #available(iOS 10.0, *), isPhone, UIDevice.current.hasTapticEngine else { return nil }
+        guard #available(iOS 10.0, *), isPhone, UIDevice.current.hasHapticFeedback else { return nil }
         guard argc > 0,
             let type = Int(argv[0])
             else {
@@ -97,7 +97,7 @@ public class SwiftController: NSObject {
     }
     
     func prepareImpact(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard #available(iOS 10.0, *), isPhone, UIDevice.current.hasTapticEngine else { return nil }
+        guard #available(iOS 10.0, *), isPhone, UIDevice.current.hasHapticFeedback else { return nil }
         guard argc > 0,
             let type = Int(argv[0])
             else {
@@ -108,7 +108,7 @@ public class SwiftController: NSObject {
     }
     
     func releaseImpact(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard #available(iOS 10.0, *), isPhone, UIDevice.current.hasTapticEngine else { return nil }
+        guard #available(iOS 10.0, *), isPhone, UIDevice.current.hasHapticFeedback else { return nil }
         guard argc > 0,
             let type = Int(argv[0])
             else {
@@ -119,7 +119,7 @@ public class SwiftController: NSObject {
     }
     
     func impactOccurred(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard #available(iOS 10.0, *), isPhone, UIDevice.current.hasTapticEngine else { return nil }
+        guard #available(iOS 10.0, *), isPhone, UIDevice.current.hasHapticFeedback else { return nil }
         guard argc > 0,
             let type = Int(argv[0])
             else {
@@ -130,19 +130,19 @@ public class SwiftController: NSObject {
     }
     
     func prepareSelection(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard #available(iOS 10.0, *), isPhone, UIDevice.current.hasTapticEngine else { return nil }
+        guard #available(iOS 10.0, *), isPhone, UIDevice.current.hasHapticFeedback else { return nil }
         tapticController.prepareSelection()
         return nil
     }
     
     func releaseSelection(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard #available(iOS 10.0, *), isPhone, UIDevice.current.hasTapticEngine else { return nil }
+        guard #available(iOS 10.0, *), isPhone, UIDevice.current.hasHapticFeedback else { return nil }
         tapticController.releaseSelection()
         return nil
     }
     
     func selectionChanged(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard #available(iOS 10.0, *), isPhone, UIDevice.current.hasTapticEngine else { return nil }
+        guard #available(iOS 10.0, *), isPhone, UIDevice.current.hasHapticFeedback else { return nil }
         tapticController.selectionChanged()
         return nil
     }
