@@ -87,6 +87,7 @@ class TapticController: NSObject {
     }
     
     func prepareSelection() {
+        selectionFeedbackGenerator = UISelectionFeedbackGenerator()
         selectionFeedbackGenerator?.prepare()
     }
     
