@@ -1,3 +1,6 @@
+### 0.1.0
+- iOS: Support AIR 32
+
 ### 0.0.8
 - iOS: Add Taptic and Haptic support
 - iOS/AND: vibrate now uses platform namespace i.e. `vibrator.ios::vibrate()`  `vibrator.android::vibrate()`
