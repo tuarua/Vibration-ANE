@@ -26,7 +26,7 @@ import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
 import com.tuarua.frekotlin.*
 
-@Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PropertyName")
+@Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PropertyName", "DEPRECATION")
 class KotlinController : FreKotlinMainController {
     private var vibrator: Vibrator? = null
     private var packageManager: PackageManager? = null
