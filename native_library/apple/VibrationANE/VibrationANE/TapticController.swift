@@ -34,7 +34,7 @@ class TapticController: NSObject {
     }
     
     func notificationOccurred(type: Int) {
-        guard let freedbackType = UINotificationFeedbackType(rawValue: type) else { return }
+        guard let freedbackType = UINotificationFeedbackGenerator.FeedbackType(rawValue: type) else { return }
         notificationFeedbackGenerator?.notificationOccurred(freedbackType)
     }
     
