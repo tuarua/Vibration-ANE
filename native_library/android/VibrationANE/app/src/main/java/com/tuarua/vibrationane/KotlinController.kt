@@ -45,9 +45,9 @@ class KotlinController : FreKotlinMainController {
 
     fun vibrate(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 2 } ?: return FreArgException("vibrate")
-        val milliseconds = Long(argv[0]) ?: return FreConversionException("milliseconds")
-        val pattern = LongArray(argv[1]) ?: return FreConversionException("pattern")
-        val repeat = Int(argv[2]) ?: return FreConversionException("repeat")
+        val milliseconds = Long(argv[0]) ?: return null
+        val pattern = LongArray(argv[1]) ?: return null
+        val repeat = Int(argv[2]) ?: return null
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             when {
@@ -118,7 +118,6 @@ class KotlinController : FreKotlinMainController {
         return false.toFREObject()
     }
 
-
     private fun hasRequiredPermissions(): Boolean {
         val pi = packageInfo ?: return false
         permissionsNeeded.forEach { p ->
@@ -137,5 +136,6 @@ class KotlinController : FreKotlinMainController {
         get() = _context
         set(value) {
             _context = value
+            FreKotlinLogger.context = _context
         }
 }
