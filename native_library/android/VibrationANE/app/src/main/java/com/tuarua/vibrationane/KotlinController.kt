@@ -45,9 +45,9 @@ class KotlinController : FreKotlinMainController {
 
     fun vibrate(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 2 } ?: return FreArgException("vibrate")
-        val milliseconds = Long(argv[0]) ?: return FreConversionException("milliseconds")
-        val pattern = LongArray(argv[1]) ?: return FreConversionException("pattern")
-        val repeat = Int(argv[2]) ?: return FreConversionException("repeat")
+        val milliseconds = Long(argv[0]) ?: return null
+        val pattern = LongArray(argv[1]) ?: return null
+        val repeat = Int(argv[2]) ?: return null
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             when {
@@ -74,50 +74,17 @@ class KotlinController : FreKotlinMainController {
         return vibrator?.hasVibrator()?.toFREObject() ?: false.toFREObject()
     }
 
-    fun notificationOccurred(ctx: FREContext, argv: FREArgv): FREObject? {
-        return null
-    }
-
-    fun releaseNotification(ctx: FREContext, argv: FREArgv): FREObject? {
-        return null
-    }
-
-    fun prepareNotification(ctx: FREContext, argv: FREArgv): FREObject? {
-        return null
-    }
-
-    fun prepareImpact(ctx: FREContext, argv: FREArgv): FREObject? {
-        return null
-    }
-
-    fun initImpact(ctx: FREContext, argv: FREArgv): FREObject? {
-        return null
-    }
-
-    fun releaseImpact(ctx: FREContext, argv: FREArgv): FREObject? {
-        return null
-    }
-
-    fun prepareSelection(ctx: FREContext, argv: FREArgv): FREObject? {
-        return null
-    }
-
-    fun releaseSelection(ctx: FREContext, argv: FREArgv): FREObject? {
-        return null
-    }
-
-    fun selectionChanged(ctx: FREContext, argv: FREArgv): FREObject? {
-        return null
-    }
-
-    fun hasHapticFeedback(ctx: FREContext, argv: FREArgv): FREObject? {
-        return false.toFREObject()
-    }
-
-    fun hasTapticEngine(ctx: FREContext, argv: FREArgv): FREObject? {
-        return false.toFREObject()
-    }
-
+    fun notificationOccurred(ctx: FREContext, argv: FREArgv): FREObject? = null
+    fun releaseNotification(ctx: FREContext, argv: FREArgv): FREObject? = null
+    fun prepareNotification(ctx: FREContext, argv: FREArgv): FREObject? = null
+    fun prepareImpact(ctx: FREContext, argv: FREArgv): FREObject? = null
+    fun initImpact(ctx: FREContext, argv: FREArgv): FREObject? = null
+    fun releaseImpact(ctx: FREContext, argv: FREArgv): FREObject? = null
+    fun prepareSelection(ctx: FREContext, argv: FREArgv): FREObject? = null
+    fun releaseSelection(ctx: FREContext, argv: FREArgv): FREObject? = null
+    fun selectionChanged(ctx: FREContext, argv: FREArgv): FREObject? = null
+    fun hasHapticFeedback(ctx: FREContext, argv: FREArgv): FREObject? = false.toFREObject()
+    fun hasTapticEngine(ctx: FREContext, argv: FREArgv): FREObject? = false.toFREObject()
 
     private fun hasRequiredPermissions(): Boolean {
         val pi = packageInfo ?: return false
@@ -137,5 +104,6 @@ class KotlinController : FreKotlinMainController {
         get() = _context
         set(value) {
             _context = value
+            FreKotlinLogger.context = _context
         }
 }
