@@ -74,49 +74,17 @@ class KotlinController : FreKotlinMainController {
         return vibrator?.hasVibrator()?.toFREObject() ?: false.toFREObject()
     }
 
-    fun notificationOccurred(ctx: FREContext, argv: FREArgv): FREObject? {
-        return null
-    }
-
-    fun releaseNotification(ctx: FREContext, argv: FREArgv): FREObject? {
-        return null
-    }
-
-    fun prepareNotification(ctx: FREContext, argv: FREArgv): FREObject? {
-        return null
-    }
-
-    fun prepareImpact(ctx: FREContext, argv: FREArgv): FREObject? {
-        return null
-    }
-
-    fun initImpact(ctx: FREContext, argv: FREArgv): FREObject? {
-        return null
-    }
-
-    fun releaseImpact(ctx: FREContext, argv: FREArgv): FREObject? {
-        return null
-    }
-
-    fun prepareSelection(ctx: FREContext, argv: FREArgv): FREObject? {
-        return null
-    }
-
-    fun releaseSelection(ctx: FREContext, argv: FREArgv): FREObject? {
-        return null
-    }
-
-    fun selectionChanged(ctx: FREContext, argv: FREArgv): FREObject? {
-        return null
-    }
-
-    fun hasHapticFeedback(ctx: FREContext, argv: FREArgv): FREObject? {
-        return false.toFREObject()
-    }
-
-    fun hasTapticEngine(ctx: FREContext, argv: FREArgv): FREObject? {
-        return false.toFREObject()
-    }
+    fun notificationOccurred(ctx: FREContext, argv: FREArgv): FREObject? = null
+    fun releaseNotification(ctx: FREContext, argv: FREArgv): FREObject? = null
+    fun prepareNotification(ctx: FREContext, argv: FREArgv): FREObject? = null
+    fun prepareImpact(ctx: FREContext, argv: FREArgv): FREObject? = null
+    fun initImpact(ctx: FREContext, argv: FREArgv): FREObject? = null
+    fun releaseImpact(ctx: FREContext, argv: FREArgv): FREObject? = null
+    fun prepareSelection(ctx: FREContext, argv: FREArgv): FREObject? = null
+    fun releaseSelection(ctx: FREContext, argv: FREArgv): FREObject? = null
+    fun selectionChanged(ctx: FREContext, argv: FREArgv): FREObject? = null
+    fun hasHapticFeedback(ctx: FREContext, argv: FREArgv): FREObject? = false.toFREObject()
+    fun hasTapticEngine(ctx: FREContext, argv: FREArgv): FREObject? = false.toFREObject()
 
     private fun hasRequiredPermissions(): Boolean {
         val pi = packageInfo ?: return false
