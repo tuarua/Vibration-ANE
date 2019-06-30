@@ -11,7 +11,7 @@ Vibration Adobe Air Native Extension for iOS 9.0+ and Android 19+.
 #### The ANE + Dependencies
 
 cd into /example and run:
-- OSX (Terminal)
+- macOS (Terminal)
 ```shell
 bash get_android_dependencies.sh
 ```
@@ -58,10 +58,10 @@ After the ipa is created unzip it and confirm there is a "Frameworks" folder in 
 You will need:
 
 - IntelliJ IDEA / Flash Builder
-- AIR 32.0.0.103 or greater
+- AIR 33 or greater
 - Android Studio 3 if you wish to edit the Android source
 - Xcode 10.1
-- wget on OSX
+- wget on macOS
 - Powershell on Windows
 
 ### References
