@@ -129,6 +129,10 @@ echo "Building ANE."
 "$AIR_SDK"/bin/adt -package \
 -target ane "$pathtome/$PROJECTNAME.ane" "$pathtome/extension_mobile.xml" \
 -swc "$pathtome/$PROJECTNAME.swc" \
+-platform Android-x86 \
+-C "$pathtome/platforms/android" "library.swf" "classes.jar" \
+com.tuarua.$PROJECTNAME-res/. \
+-platformoptions "$pathtome/platforms/android/platform.xml" \
 -platform Android-ARM \
 -C "$pathtome/platforms/android" "library.swf" "classes.jar" \
 com.tuarua.$PROJECTNAME-res/. \
