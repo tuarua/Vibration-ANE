@@ -19,19 +19,9 @@ import com.tuarua.frekotlin.FreKotlinContext;
 import com.tuarua.frekotlin.FreKotlinMainController;
 
 
+@SuppressWarnings("WeakerAccess")
 public class VibrationANEContext extends FreKotlinContext {
-    private final FreKotlinMainController controller;
-
-    @SuppressWarnings("WeakerAccess")
     public VibrationANEContext(String name, FreKotlinMainController controller, String[] functions) {
         super(name, controller, functions);
-        this.controller = controller;
-    }
-
-
-    @Override
-    public void dispose() {
-        super.dispose();
-        this.controller.dispose();
     }
 }

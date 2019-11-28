@@ -14,6 +14,7 @@ extension UIDevice {
         case iPhoneXS = "iPhone XS"
         case iPhoneXSMax = "iPhone XS Max"
         case iPhoneXR = "iPhone XR"
+        case iPhone11 = "iPhone 11"
     }
     
     var platform: DevicePlatform {
@@ -27,6 +28,8 @@ extension UIDevice {
                 return .iPhoneXSMax
             case "iPhone11,8":
                 return .iPhoneXR
+            case "iPhone12,1", "iPhone12,3", "iPhone12,5":
+                return .iPhone11
             case "iPhone10,3", "iPhone10,6":
                 return .iPhoneX
             case "iPhone10,2", "iPhone10,5":
@@ -64,5 +67,6 @@ extension UIDevice {
             || platform == .iPhoneXR
             || platform == .iPhoneXS
             || platform == .iPhoneXSMax
+            || platform == .iPhone11
     }
 }

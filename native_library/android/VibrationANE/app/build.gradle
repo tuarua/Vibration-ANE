@@ -9,7 +9,7 @@ android {
         minSdkVersion 19
         targetSdkVersion compileSdkVersion
         versionCode 1
-        versionName "1.2.0"
+        versionName "1.3.0"
     }
     buildTypes {
         release {
@@ -20,6 +20,9 @@ android {
     compileOptions {
         sourceCompatibility = '1.8'
         targetCompatibility = '1.8'
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
 }
 

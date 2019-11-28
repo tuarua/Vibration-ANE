@@ -34,6 +34,17 @@ class KotlinController : FreKotlinMainController {
     private var permissionsGranted = false
     private val permissionsNeeded: Array<String> = arrayOf(Manifest.permission.VIBRATE)
 
+    private fun hasRequiredPermissions(): Boolean {
+        val pi = packageInfo ?: return false
+        permissionsNeeded.forEach { p ->
+            if (p !in pi.requestedPermissions) {
+                trace("Please add $p to uses-permission list in your AIR manifest")
+                return false
+            }
+        }
+        return true
+    }
+
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
         val appActivity = ctx.activity ?: return false.toFREObject()
         vibrator = ctx.activity.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
@@ -44,7 +55,7 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun vibrate(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 2 } ?: return FreArgException("vibrate")
+        argv.takeIf { argv.size > 2 } ?: return FreArgException()
         val milliseconds = Long(argv[0]) ?: return null
         val pattern = LongArray(argv[1]) ?: return null
         val repeat = Int(argv[2]) ?: return null
@@ -86,18 +97,7 @@ class KotlinController : FreKotlinMainController {
     fun hasHapticFeedback(ctx: FREContext, argv: FREArgv): FREObject? = false.toFREObject()
     fun hasTapticEngine(ctx: FREContext, argv: FREArgv): FREObject? = false.toFREObject()
 
-    private fun hasRequiredPermissions(): Boolean {
-        val pi = packageInfo ?: return false
-        permissionsNeeded.forEach { p ->
-            if (p !in pi.requestedPermissions) {
-                trace("Please add $p to uses-permission list in your AIR manifest")
-                return false
-            }
-        }
-        return true
-    }
-
-    override val TAG: String
+    override val TAG: String?
         get() = this::class.java.simpleName
     private var _context: FREContext? = null
     override var context: FREContext?

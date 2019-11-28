@@ -29,11 +29,7 @@ FRE_OBJC_BRIDGE_FUNCS
 SWIFT_DECL(TRVIB) // use unique prefix throughout to prevent clashes with other ANEs
 CONTEXT_INIT(TRVIB) {
     SWIFT_INITS(TRVIB)
-    
-    /**************************************************************************/
-    /******* MAKE SURE TO ADD FUNCTIONS HERE THE SAME AS SWIFT CONTROLLER *****/
-    /**************************************************************************/
-    
+
     static FRENamedFunction extensionFunctions[] =
     {
          MAP_FUNCTION(TRVIB, init)
@@ -53,9 +49,6 @@ CONTEXT_INIT(TRVIB) {
         ,MAP_FUNCTION(TRVIB, hasHapticFeedback)
         ,MAP_FUNCTION(TRVIB, hasTapticEngine)
     };
-    
-    /**************************************************************************/
-    /**************************************************************************/
     
     SET_FUNCTIONS
     
