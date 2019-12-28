@@ -17,7 +17,7 @@
 #import "VibrationANE_oc.h"
 #import <VibrationANE_FW/VibrationANE_FW.h>
 
-#define FRE_OBJC_BRIDGE TRVIB_FlashRuntimeExtensionsBridge // use unique prefix throughout to prevent clashes with other ANEs
+#define FRE_OBJC_BRIDGE TRVIB_FlashRuntimeExtensionsBridge
 @interface FRE_OBJC_BRIDGE : NSObject<FreSwiftBridgeProtocol>
 @end
 @implementation FRE_OBJC_BRIDGE {
@@ -26,7 +26,7 @@ FRE_OBJC_BRIDGE_FUNCS
 @end
 
 @implementation VibrationANE_LIB
-SWIFT_DECL(TRVIB) // use unique prefix throughout to prevent clashes with other ANEs
+SWIFT_DECL(TRVIB)
 CONTEXT_INIT(TRVIB) {
     SWIFT_INITS(TRVIB)
 
