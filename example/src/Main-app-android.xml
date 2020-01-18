@@ -29,11 +29,15 @@
 
 <android>
         <manifestAdditions><![CDATA[
-			<manifest android:installLocation="auto">
-			    <uses-permission android:name="android.permission.INTERNET"/>
-			    <uses-permission android:name="android.permission.VIBRATE"/>
-			</manifest>
-			
+            <manifest android:installLocation="auto">
+                <uses-sdk android:minSdkVersion="19" android:targetSdkVersion="28" />
+                <uses-permission android:name="android.permission.INTERNET"/>
+                <uses-permission android:name="android.permission.VIBRATE"/>
+                <application android:enabled="true">
+                    <meta-data android:name="android.max_aspect" android:value="2.1" />
+                    <activity android:excludeFromRecents="false" android:hardwareAccelerated="true">
+                </application>
+            </manifest>
 		]]></manifestAdditions>
     </android>
 
