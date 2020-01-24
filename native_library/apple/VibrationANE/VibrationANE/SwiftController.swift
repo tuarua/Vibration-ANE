@@ -43,7 +43,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let systemSound = Int(argv[0])
             else {
-                return FreArgError(message: "vibrate").getError(#file, #line, #column)
+                return FreArgError().getError()
         }
         
         var systemSoundID = SystemSoundID(kSystemSoundID_Vibrate)
@@ -78,7 +78,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let type = Int(argv[0])
             else {
-                return FreArgError(message: "notificationOccurred").getError(#file, #line, #column)
+                return FreArgError().getError()
         }
         guard #available(iOS 10.0, *), isPhone, UIDevice.current.hasHapticFeedback else { return nil }
         tapticController.notificationOccurred(type: type)
@@ -90,7 +90,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let type = Int(argv[0])
             else {
-                return FreArgError(message: "initImpact").getError(#file, #line, #column)
+                return FreArgError().getError()
         }
         tapticController.initImpact(type: type)
         return nil
@@ -101,7 +101,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let type = Int(argv[0])
             else {
-                return FreArgError(message: "prepareImpact").getError(#file, #line, #column)
+                return FreArgError().getError()
         }
         tapticController.prepareImpact(type: type)
         return nil
@@ -112,7 +112,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let type = Int(argv[0])
             else {
-                return FreArgError(message: "prepareImpact").getError(#file, #line, #column)
+                return FreArgError().getError()
         }
         tapticController.releaseImpact(type: type)
         return nil
@@ -123,7 +123,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let type = Int(argv[0])
             else {
-                return FreArgError(message: "impactOccurred").getError(#file, #line, #column)
+                return FreArgError().getError()
         }
         tapticController.impactOccurred(type: type)
         return nil

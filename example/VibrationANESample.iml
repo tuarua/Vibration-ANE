@@ -11,7 +11,7 @@
             <entry library-name="VibrationANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="com.tuarua.frekotlin-1.8.0" library-level="project">
+            <entry library-name="com.tuarua.frekotlin-1.9.5" library-level="project">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -106,5 +106,6 @@
     <orderEntry type="library" exported="" name="com.tuarua.frekotlin" level="project" />
     <orderEntry type="library" exported="" name="VibrationANE" level="project" />
     <orderEntry type="library" exported="" name="com.tuarua.frekotlin-1.8.0" level="project" />
+    <orderEntry type="library" exported="" name="com.tuarua.frekotlin-1.9.5" level="project" />
   </component>
 </module>
