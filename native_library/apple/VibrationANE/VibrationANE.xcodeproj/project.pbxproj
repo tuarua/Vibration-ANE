@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		901D78F023E376D500C92385 /* HapticEngineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901D78EF23E376D500C92385 /* HapticEngineController.swift */; };
 		9055E18E217141C80006CD4C /* TapticController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9055E18D217141C80006CD4C /* TapticController.swift */; platformFilter = ios; };
 		906787BF217017D200100455 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906787BE217017D200100455 /* UIDevice.swift */; platformFilter = ios; };
+		90884CD823E4C2F10071FEC4 /* HapticEngineEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90884CD723E4C2F10071FEC4 /* HapticEngineEvent.swift */; };
+		90884CDB23E4C4CF0071FEC4 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 90884CDA23E4C4CF0071FEC4 /* SwiftyJSON */; };
 		CE05603F1FB25CE200D06976 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; platformFilter = ios; };
 		CE0560401FB25CE200D06976 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; platformFilter = ios; };
 		CE0560431FB25D1B00D06976 /* SwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0560411FB25D1B00D06976 /* SwiftController.swift */; platformFilter = ios; };
@@ -32,8 +35,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		901D78EF23E376D500C92385 /* HapticEngineController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticEngineController.swift; sourceTree = "<group>"; };
 		9055E18D217141C80006CD4C /* TapticController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapticController.swift; sourceTree = "<group>"; };
 		906787BE217017D200100455 /* UIDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
+		90884CD723E4C2F10071FEC4 /* HapticEngineEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticEngineEvent.swift; sourceTree = "<group>"; };
 		CE05603E1FB25CE200D06976 /* FreSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FreSwift.framework; path = Carthage/Build/iOS/FreSwift.framework; sourceTree = "<group>"; };
 		CE0560411FB25D1B00D06976 /* SwiftController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftController.swift; sourceTree = "<group>"; };
 		CE05604D1FB25E8E00D06976 /* FreMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreMacros.h; sourceTree = "<group>"; };
@@ -61,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90884CDB23E4C4CF0071FEC4 /* SwiftyJSON in Frameworks */,
 				CE0560401FB25CE200D06976 /* FreSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -74,6 +80,14 @@
 				906787BE217017D200100455 /* UIDevice.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		90884CD623E4C2D60071FEC4 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				90884CD723E4C2F10071FEC4 /* HapticEngineEvent.swift */,
+			);
+			path = Events;
 			sourceTree = "<group>";
 		};
 		CE05603D1FB25CD100D06976 /* Frameworks */ = {
@@ -106,6 +120,7 @@
 		CEBD78C52057192600ABE05A /* VibrationANE */ = {
 			isa = PBXGroup;
 			children = (
+				90884CD623E4C2D60071FEC4 /* Events */,
 				906787BD217017BE00100455 /* Extensions */,
 				CEBD78C72057195500ABE05A /* Misc */,
 				CEBD78C62057194000ABE05A /* Headers */,
@@ -113,6 +128,7 @@
 				CE87F4781FB259DB005CF7DF /* VibrationANE.m */,
 				CEBD78C82057198700ABE05A /* SwiftController+FreSwift.swift */,
 				9055E18D217141C80006CD4C /* TapticController.swift */,
+				901D78EF23E376D500C92385 /* HapticEngineController.swift */,
 			);
 			path = VibrationANE;
 			sourceTree = "<group>";
@@ -192,6 +208,9 @@
 			dependencies = (
 			);
 			name = VibrationANE_FW;
+			packageProductDependencies = (
+				90884CDA23E4C4CF0071FEC4 /* SwiftyJSON */,
+			);
 			productName = HelloWorldANE_FW;
 			productReference = CE87F4831FB259FA005CF7DF /* VibrationANE_FW.framework */;
 			productType = "com.apple.product-type.framework";
@@ -226,6 +245,9 @@
 				Base,
 			);
 			mainGroup = CE87F45C1FB259C9005CF7DF;
+			packageReferences = (
+				90884CD923E4C4CF0071FEC4 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+			);
 			productRefGroup = CE87F4661FB259C9005CF7DF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -280,6 +302,8 @@
 			files = (
 				CE0560431FB25D1B00D06976 /* SwiftController.swift in Sources */,
 				906787BF217017D200100455 /* UIDevice.swift in Sources */,
+				901D78F023E376D500C92385 /* HapticEngineController.swift in Sources */,
+				90884CD823E4C2F10071FEC4 /* HapticEngineEvent.swift in Sources */,
 				9055E18E217141C80006CD4C /* TapticController.swift in Sources */,
 				CEBD78C92057198700ABE05A /* SwiftController+FreSwift.swift in Sources */,
 			);
@@ -300,6 +324,7 @@
 		CE87F46C1FB259C9005CF7DF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -359,6 +384,7 @@
 		CE87F46D1FB259C9005CF7DF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -414,6 +440,7 @@
 		CE87F47C1FB259DB005CF7DF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
@@ -441,6 +468,7 @@
 		CE87F47D1FB259DB005CF7DF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
@@ -467,7 +495,7 @@
 		CE87F4891FB259FA005CF7DF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
@@ -509,7 +537,7 @@
 		CE87F48A1FB259FA005CF7DF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
@@ -579,6 +607,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		90884CD923E4C4CF0071FEC4 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		90884CDA23E4C4CF0071FEC4 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 90884CD923E4C4CF0071FEC4 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CE87F45D1FB259C9005CF7DF /* Project object */;
 }

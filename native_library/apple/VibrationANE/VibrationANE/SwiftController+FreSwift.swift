@@ -33,6 +33,12 @@ extension SwiftController: FreSwiftMainController {
         functionsToSet["\(prefix)selectionChanged"] = selectionChanged
         functionsToSet["\(prefix)hasHapticFeedback"] = hasHapticFeedback
         functionsToSet["\(prefix)hasTapticEngine"] = hasTapticEngine
+        functionsToSet["\(prefix)hasHapticEngine"] = hasHapticEngine
+        functionsToSet["\(prefix)initHapticEngine"] = initHapticEngine
+        functionsToSet["\(prefix)startHapticEngine"] = startHapticEngine
+        functionsToSet["\(prefix)stopHapticEngine"] = stopHapticEngine
+        
+        functionsToSet["\(prefix)playPattern"] = playPattern
 
         var arr: [String] = []
         for key in functionsToSet.keys {
@@ -50,7 +56,7 @@ extension SwiftController: FreSwiftMainController {
     }
     
     @objc public func setFREContext(ctx: FREContext) {
-        self.context = FreContextSwift.init(freContext: ctx)
+        self.context = FreContextSwift(freContext: ctx)
     }
     
     @objc public func onLoad() {

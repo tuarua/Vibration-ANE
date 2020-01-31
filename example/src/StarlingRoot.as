@@ -2,10 +2,13 @@ package {
 
 import com.tuarua.VibrationANE;
 import com.tuarua.android;
+import com.tuarua.fre.ANEError;
 import com.tuarua.ios;
 import com.tuarua.utils.os;
+import com.tuarua.vibration.ios.HapticEngine;
 import com.tuarua.vibration.ios.NotificationFeedbackGenerator;
 import com.tuarua.vibration.ios.NotificationFeedbackType;
+import com.tuarua.vibration.ios.StoppedReason;
 import com.tuarua.vibration.ios.SystemSoundID;
 
 import flash.desktop.NativeApplication;
@@ -25,7 +28,9 @@ public class StarlingRoot extends Sprite {
     private var btnRepeat:SimpleButton = new SimpleButton("Repeat Vibrate");
     private var btnCancel:SimpleButton = new SimpleButton("Cancel Vibrate");
     private var btnTaptic:SimpleButton = new SimpleButton("Notification Taptic");
+    private var btnHapticEngine:SimpleButton = new SimpleButton("Haptic Engine");
     private var vibrator:VibrationANE;
+    private var hapticEngine:HapticEngine;
 
     public function StarlingRoot() {
         TextField.registerCompositor(Fonts.getFont("fira-sans-semi-bold-13"), "Fira Sans Semi-Bold 13");
@@ -34,9 +39,10 @@ public class StarlingRoot extends Sprite {
 
     public function start():void {
         vibrator = VibrationANE.vibrator;
-        trace("vibrator.hasVibrator", vibrator.hasVibrator);
-        trace("vibrator.hasTapticEngine", vibrator.hasTapticEngine);
-        trace("vibrator.hasHapticFeedback", vibrator.hasHapticFeedback);
+        trace("vibrator.hasVibrator:", vibrator.hasVibrator);
+        trace("vibrator.hasTapticEngine:", vibrator.hasTapticEngine);
+        trace("vibrator.hasHapticFeedback:", vibrator.hasHapticFeedback);
+        trace("HapticEngine.supportsHaptics:", HapticEngine.supportsHaptics);
         if (vibrator.hasVibrator) {
             initMenu();
         }
@@ -66,6 +72,32 @@ public class StarlingRoot extends Sprite {
             btnTaptic.y = 180;
             btnTaptic.addEventListener(TouchEvent.TOUCH, onTapticClick);
             addChild(btnTaptic);
+
+            if (HapticEngine.supportsHaptics) {
+                try {
+                    hapticEngine = new HapticEngine(function (reason:int):void {
+                        switch (reason) {
+                            case StoppedReason.applicationSuspended:
+                                break;
+                            case StoppedReason.audioSessionInterrupt:
+                                break;
+                            case StoppedReason.idleTimeout:
+                                break;
+                            case StoppedReason.notifyWhenFinished:
+                                break;
+                            case StoppedReason.systemError:
+                                break;
+                        }
+                    });
+                } catch (e:ANEError) {
+                    trace(e.message);
+                    return;
+                }
+                btnHapticEngine.y = 260;
+                btnHapticEngine.addEventListener(TouchEvent.TOUCH, onHapticEngineClick);
+                addChild(btnHapticEngine);
+            }
+
         }
     }
 
@@ -110,6 +142,18 @@ public class StarlingRoot extends Sprite {
         if (touch != null && touch.phase == TouchPhase.ENDED) {
             btnCancel.visible = false;
             vibrator.cancel();
+        }
+    }
+
+    private function onHapticEngineClick(event:TouchEvent):void {
+        var touch:Touch = event.getTouch(btnHapticEngine);
+        if (touch != null && touch.phase == TouchPhase.ENDED) {
+            try {
+                hapticEngine.start();
+                hapticEngine.playPattern("AHAP/Heartbeats");
+            } catch (e:ANEError) {
+                trace(e.message);
+            }
         }
     }
 

@@ -16,12 +16,17 @@
 package com.tuarua {
 import flash.events.StatusEvent;
 import flash.external.ExtensionContext;
+import flash.utils.Dictionary;
+
 /** @private */
 public class VibrationANEContext {
     internal static const NAME:String = "VibrationANE";
     internal static const TRACE:String = "TRACE";
+    private static const HAPTIC_ENGINE_STOPPED:String = "HapticEngineEvent.Stopped";
     private static var _context:ExtensionContext;
+    public static var callbacks:Dictionary = new Dictionary();
     private static var _isDisposed:Boolean;
+    private static var argsAsJSON:Object;
     public function VibrationANEContext() {
     }
     public static function get context():ExtensionContext {
@@ -37,10 +42,32 @@ public class VibrationANEContext {
         return _context;
     }
 
+    public static function createCallback(listener:Function):String {
+        var id:String;
+        if (listener) {
+            id = context.call("createGUID") as String;
+            callbacks[id] = listener;
+        }
+        return id;
+    }
+
+    public static function callCallback(callbackId:String, clear:Boolean, ... args):void {
+        var callback:Function = callbacks[callbackId];
+        if (callback == null) return;
+        callback.apply(null, args);
+        if (clear) {
+            delete callbacks[callbackId];
+        }
+    }
+
     private static function gotEvent(event:StatusEvent):void {
         switch (event.level) {
             case TRACE:
                 trace("[" + NAME + "]", event.code);
+                break;
+            case HAPTIC_ENGINE_STOPPED:
+                argsAsJSON = JSON.parse(event.code);
+                callCallback(argsAsJSON.callbackId, true, argsAsJSON.reason);
                 break;
         }
     }
