@@ -14,12 +14,10 @@ public class HapticEngine {
      * override the request with system services, like haptics from system notifications.</p>
      *
      * @throws An ANEError if the engine cannot be created
-     * @param stoppedHandler A block that the haptic engine calls when it stops due to external causes.
-     */
-    public function HapticEngine(stoppedHandler:Function) {
+     * */
+    public function HapticEngine() {
         if (!VibrationANE.safetyCheck()) return;
-        var theRet:* = VibrationANEContext.context.call("initHapticEngine",
-                VibrationANEContext.createCallback(stoppedHandler));
+        var theRet:* = VibrationANEContext.context.call("initHapticEngine");
         if (theRet is ANEError) throw theRet as ANEError;
     }
 
@@ -28,7 +26,8 @@ public class HapticEngine {
      *
      * <p>This method blocks processing on the current thread until the pattern has finished playing.</p>
      * @throws An ANEError if the pattern cannot be played.
-     * @param fileName The file name of the AHAP file containing the haptic event dictionary. */
+     * @param fileName The file name of the AHAP file containing the haptic event dictionary.
+     * */
     public function playPattern(fileName:String):void {
         if (!VibrationANE.safetyCheck()) return;
         var theRet:* = VibrationANEContext.context.call("playPattern", fileName);
@@ -60,8 +59,37 @@ public class HapticEngine {
     }
 
     /**
+     * A function that the haptic engine calls after recovering from a haptic server error.
+     *
+     * <p>External causes that can trigger this block include audio session interruption, application suspension,
+     * or system error. Calling stop doesn't trigger this block.
+     * Callbacks to this block arrive on a non-main thread, so handle them in a thread-safe manner.</p>
+     * */
+    public function set stoppedHandler(value:Function):void {
+        if (!VibrationANE.safetyCheck()) return;
+        var theRet:* = VibrationANEContext.context.call("stoppedHandler",
+                VibrationANEContext.createCallback(value));
+        if (theRet is ANEError) throw theRet as ANEError;
+    }
+
+    /**
+     * A function that the haptic engine calls when it stops due to external causes.
+     *
+     * <p>If the handler has to reset itself after a server failure, the system calls this block asynchronously.
+     * In this block, release all haptic pattern players and recreate them. The system preserves HapticPattern
+     * objects and HapticEngine properties across restarts. Consider trying to restart the engine inside the
+     * reset block.</p>
+     * */
+    public function set resetHandler(value:Function):void {
+        if (!VibrationANE.safetyCheck()) return;
+        var theRet:* = VibrationANEContext.context.call("resetHandler",
+                VibrationANEContext.createCallback(value));
+        if (theRet is ANEError) throw theRet as ANEError;
+    }
+
+    /**
      * A Boolean value that indicates whether the device supports haptic event playback.
-     */
+     * */
     public static function get supportsHaptics():Boolean {
         if (!VibrationANE.safetyCheck()) return false;
         return VibrationANEContext.context.call("hasHapticEngine") as Boolean;

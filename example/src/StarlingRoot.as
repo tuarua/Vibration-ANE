@@ -75,24 +75,33 @@ public class StarlingRoot extends Sprite {
 
             if (HapticEngine.supportsHaptics) {
                 try {
-                    hapticEngine = new HapticEngine(function (reason:int):void {
-                        switch (reason) {
-                            case StoppedReason.applicationSuspended:
-                                break;
-                            case StoppedReason.audioSessionInterrupt:
-                                break;
-                            case StoppedReason.idleTimeout:
-                                break;
-                            case StoppedReason.notifyWhenFinished:
-                                break;
-                            case StoppedReason.systemError:
-                                break;
-                        }
-                    });
+                    hapticEngine = new HapticEngine();
                 } catch (e:ANEError) {
                     trace(e.message);
                     return;
                 }
+                hapticEngine.stoppedHandler = function (reason:int):void {
+                    switch (reason) {
+                        case StoppedReason.applicationSuspended:
+                            break;
+                        case StoppedReason.audioSessionInterrupt:
+                            break;
+                        case StoppedReason.idleTimeout:
+                            break;
+                        case StoppedReason.notifyWhenFinished:
+                            break;
+                        case StoppedReason.systemError:
+                            break;
+                    }
+                };
+                hapticEngine.resetHandler = function ():void {
+                    try {
+                        trace("The engine reset --> Restarting now!");
+                        hapticEngine.start();
+                    } catch (e:ANEError) {
+                        trace(e.message);
+                    }
+                };
                 btnHapticEngine.y = 260;
                 btnHapticEngine.addEventListener(TouchEvent.TOUCH, onHapticEngineClick);
                 addChild(btnHapticEngine);

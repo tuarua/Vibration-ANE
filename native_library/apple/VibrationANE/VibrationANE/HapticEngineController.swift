@@ -22,27 +22,40 @@ class HapticEngineController: FreSwiftController {
     static var TAG: String = "HapticEngineController"
     lazy var supportsHaptics = CHHapticEngine.capabilitiesForHardware().supportsHaptics
     private var engine: CHHapticEngine?
+    private var _stoppedCallbackId: String?
+    var stoppedCallbackId: String? {
+        set { _stoppedCallbackId = newValue }
+        get { return _stoppedCallbackId }
+    }
+    
+    private var _resetCallbackId: String?
+    var resetCallbackId: String? {
+        set { _resetCallbackId = newValue }
+        get { return _resetCallbackId }
+    }
     
     init(ctx: FreContextSwift) {
         self.context = ctx
     }
     
-    func createEngine(callbackId: String) -> String? {
+    func createEngine() -> String? {
         do {
             engine = try CHHapticEngine()
         } catch let error {
             return error.localizedDescription
         }
+        
         engine?.stoppedHandler = { reason in
-            self.dispatchEvent(name: HapticEngineEvent.HAPTIC_ENGINE_STOPPED,
-                               value: HapticEngineEvent(callbackId: callbackId, reason: reason).toJSONString())
+            if let callbackId = self.resetCallbackId {
+                self.dispatchEvent(name: HapticEngineEvent.HAPTIC_ENGINE_STOPPED,
+                value: HapticEngineEvent(callbackId: callbackId, reason: reason).toJSONString())
+            }
         }
         
         engine?.resetHandler = {
-            do {
-                try self.engine?.start()
-            } catch {
-                self.warning("Failed to restart the engine: \(error)")
+            if let callbackId = self.stoppedCallbackId {
+                self.dispatchEvent(name: HapticEngineEvent.HAPTIC_ENGINE_RESTART,
+                value: HapticEngineEvent(callbackId: callbackId).toJSONString())
             }
         }
         return nil

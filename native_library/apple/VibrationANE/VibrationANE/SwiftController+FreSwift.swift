@@ -35,9 +35,10 @@ extension SwiftController: FreSwiftMainController {
         functionsToSet["\(prefix)hasTapticEngine"] = hasTapticEngine
         functionsToSet["\(prefix)hasHapticEngine"] = hasHapticEngine
         functionsToSet["\(prefix)initHapticEngine"] = initHapticEngine
+        functionsToSet["\(prefix)stoppedHandler"] = stoppedHandler
+        functionsToSet["\(prefix)resetHandler"] = resetHandler
         functionsToSet["\(prefix)startHapticEngine"] = startHapticEngine
         functionsToSet["\(prefix)stopHapticEngine"] = stopHapticEngine
-        
         functionsToSet["\(prefix)playPattern"] = playPattern
 
         var arr: [String] = []

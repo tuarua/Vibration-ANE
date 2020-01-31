@@ -23,6 +23,7 @@ public class VibrationANEContext {
     internal static const NAME:String = "VibrationANE";
     internal static const TRACE:String = "TRACE";
     private static const HAPTIC_ENGINE_STOPPED:String = "HapticEngineEvent.Stopped";
+    private static const HAPTIC_ENGINE_RESTART:String = "HapticEngineEvent.Restart";
     private static var _context:ExtensionContext;
     public static var callbacks:Dictionary = new Dictionary();
     private static var _isDisposed:Boolean;
@@ -51,7 +52,7 @@ public class VibrationANEContext {
         return id;
     }
 
-    public static function callCallback(callbackId:String, clear:Boolean, ... args):void {
+    public static function callCallback(callbackId:String, clear:Boolean = true, ... args):void {
         var callback:Function = callbacks[callbackId];
         if (callback == null) return;
         callback.apply(null, args);
@@ -67,7 +68,11 @@ public class VibrationANEContext {
                 break;
             case HAPTIC_ENGINE_STOPPED:
                 argsAsJSON = JSON.parse(event.code);
-                callCallback(argsAsJSON.callbackId, true, argsAsJSON.reason);
+                callCallback(argsAsJSON.callbackId, false, argsAsJSON.reason);
+                break;
+            case HAPTIC_ENGINE_RESTART:
+                argsAsJSON = JSON.parse(event.code);
+                callCallback(argsAsJSON.callbackId);
                 break;
         }
     }

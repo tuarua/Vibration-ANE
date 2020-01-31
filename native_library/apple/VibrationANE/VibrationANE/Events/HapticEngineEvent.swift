@@ -21,11 +21,12 @@ import SwiftyJSON
 @available(iOS 13.0, *)
 class HapticEngineEvent: NSObject {
     public static let HAPTIC_ENGINE_STOPPED = "HapticEngineEvent.Stopped"
+    public static let HAPTIC_ENGINE_RESTART = "HapticEngineEvent.Restart"
     
     var callbackId: String
-    var reason: CHHapticEngine.StoppedReason = .idleTimeout
+    var reason: CHHapticEngine.StoppedReason?
 
-    init(callbackId: String, reason: CHHapticEngine.StoppedReason) {
+    init(callbackId: String, reason: CHHapticEngine.StoppedReason? = nil) {
         self.callbackId = callbackId
         self.reason = reason
     }
@@ -33,7 +34,9 @@ class HapticEngineEvent: NSObject {
     public func toJSONString() -> String {
         var props = [String: Any]()
         props["callbackId"] = callbackId
-        props["reason"] = reason.rawValue
+        if let reason = reason?.rawValue {
+            props["reason"] = reason
+        }
         return JSON(props).description
     }
 

@@ -165,15 +165,32 @@ public class SwiftController: NSObject {
     
     func initHapticEngine(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard #available(iOS 13.0, *) else { return nil }
+        hapticEngineController = HapticEngineController(ctx: self.context)
+        if let error = hapticEngineController?.createEngine() {
+            return FreError(message: error, type: FreError.Code.ok).getError()
+        }
+        return nil
+    }
+    
+    func stoppedHandler(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        guard #available(iOS 13.0, *) else { return nil }
         guard argc > 0,
             let callbackId = String(argv[0])
             else {
                 return FreArgError().getError()
         }
-        hapticEngineController = HapticEngineController(ctx: self.context)
-        if let error = hapticEngineController?.createEngine(callbackId: callbackId) {
-            return FreError(message: error, type: FreError.Code.ok).getError()
+        hapticEngineController?.stoppedCallbackId = callbackId
+        return nil
+    }
+    
+    func resetHandler(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        guard #available(iOS 13.0, *) else { return nil }
+        guard argc > 0,
+            let callbackId = String(argv[0])
+            else {
+                return FreArgError().getError()
         }
+        hapticEngineController?.resetCallbackId = callbackId
         return nil
     }
     

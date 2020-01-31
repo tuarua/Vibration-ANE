@@ -50,6 +50,8 @@ CONTEXT_INIT(TRVIB) {
         ,MAP_FUNCTION(TRVIB, hasTapticEngine)
         ,MAP_FUNCTION(TRVIB, hasHapticEngine)
         ,MAP_FUNCTION(TRVIB, initHapticEngine)
+        ,MAP_FUNCTION(TRVIB, stoppedHandler)
+        ,MAP_FUNCTION(TRVIB, resetHandler)
         ,MAP_FUNCTION(TRVIB, startHapticEngine)
         ,MAP_FUNCTION(TRVIB, stopHapticEngine)
         ,MAP_FUNCTION(TRVIB, playPattern)

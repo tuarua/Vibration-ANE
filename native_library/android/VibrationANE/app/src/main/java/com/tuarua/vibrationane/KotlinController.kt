@@ -96,6 +96,13 @@ class KotlinController : FreKotlinMainController {
     fun selectionChanged(ctx: FREContext, argv: FREArgv): FREObject? = null
     fun hasHapticFeedback(ctx: FREContext, argv: FREArgv): FREObject? = false.toFREObject()
     fun hasTapticEngine(ctx: FREContext, argv: FREArgv): FREObject? = false.toFREObject()
+    fun hasHapticEngine(ctx: FREContext, argv: FREArgv): FREObject? = false.toFREObject()
+    fun initHapticEngine(ctx: FREContext, argv: FREArgv): FREObject? = null
+    fun stoppedHandler(ctx: FREContext, argv: FREArgv): FREObject? = null
+    fun resetHandler(ctx: FREContext, argv: FREArgv): FREObject? = null
+    fun startHapticEngine(ctx: FREContext, argv: FREArgv): FREObject? = null
+    fun stopHapticEngine(ctx: FREContext, argv: FREArgv): FREObject? = null
+    fun playPattern(ctx: FREContext, argv: FREArgv): FREObject? = null
 
     override val TAG: String?
         get() = this::class.java.simpleName
