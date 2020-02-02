@@ -5,6 +5,8 @@ import com.tuarua.android;
 import com.tuarua.fre.ANEError;
 import com.tuarua.ios;
 import com.tuarua.utils.os;
+import com.tuarua.vibration.android.OneShot;
+import com.tuarua.vibration.android.Waveform;
 import com.tuarua.vibration.ios.HapticEngine;
 import com.tuarua.vibration.ios.NotificationFeedbackGenerator;
 import com.tuarua.vibration.ios.NotificationFeedbackType;
@@ -124,7 +126,7 @@ public class StarlingRoot extends Sprite {
         var touch:Touch = event.getTouch(btnSimple);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
             if (os.isAndroid) {
-                vibrator.android::vibrate(150);
+                vibrator.android::vibrate(new OneShot(150));
             } else if (os.isIos) {
                 vibrator.ios::vibrate(vibrator.hasTapticEngine ? SystemSoundID.POP : SystemSoundID.DEFAULT);
             }
@@ -134,7 +136,7 @@ public class StarlingRoot extends Sprite {
     private function onMultiClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnMulti);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
-            vibrator.android::vibrate(0, [0, 100, 1000, 300]);
+            vibrator.android::vibrate(new Waveform([0, 100, 1000, 300]));
         }
     }
 
@@ -142,7 +144,7 @@ public class StarlingRoot extends Sprite {
         var touch:Touch = event.getTouch(btnRepeat);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
             btnCancel.visible = true;
-            vibrator.android::vibrate(0, [0, 100, 2000, 500], 0);
+            vibrator.android::vibrate(new Waveform([0, 100, 1000, 300], null, 0));
         }
     }
 

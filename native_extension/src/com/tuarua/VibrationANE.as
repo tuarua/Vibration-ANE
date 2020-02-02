@@ -15,6 +15,7 @@
  */
 package com.tuarua {
 import com.tuarua.fre.ANEError;
+import com.tuarua.vibration.android.VibrationEffect;
 import com.tuarua.vibration.ios.SystemSoundID;
 
 import flash.events.EventDispatcher;
@@ -41,29 +42,15 @@ public class VibrationANE extends EventDispatcher {
         if (!_vibrator) new VibrationANE();
         return _vibrator;
     }
-
+    
     /**
      * Vibrate with a given pattern.
      *
-     * <p>
-     * Pass in an array of ints that are the durations for which to turn on or off
-     * the vibrator in milliseconds.  The first value indicates the number of milliseconds
-     * to wait before turning the vibrator on.  The next value indicates the number of milliseconds
-     * for which to keep the vibrator on before turning it off.  Subsequent values alternate
-     * between durations in milliseconds to turn the vibrator off or to turn the vibrator on.
-     * </p><p>
-     * To cause the pattern to repeat, pass the index into the pattern array at which
-     * to start the repeat, or -1 to disable repeating.
-     * </p>
-     *
-     * @param milliseconds the number of milliseconds to vibrate. Set to 0 when using a pattern. Ignored on iOS
-     * @param pattern an array of times for which to turn the vibrator on or off. Ignored on iOS
-     * @param repeat the index into pattern at which to repeat, or -1 if
-     *        you don't want to repeat. Ignored on iOS
+     * @param vibe
      */
-    android function vibrate(milliseconds:int = 0, pattern:Array = null, repeat:int = -1):void {
+    android function vibrate(vibe:VibrationEffect):void {
         if (!safetyCheck()) return;
-        var theRet:* = VibrationANEContext.context.call("vibrate", milliseconds, pattern ? pattern : [], repeat);
+        var theRet:* = VibrationANEContext.context.call("vibrate", vibe);
         if (theRet is ANEError) throw theRet as ANEError;
     }
 

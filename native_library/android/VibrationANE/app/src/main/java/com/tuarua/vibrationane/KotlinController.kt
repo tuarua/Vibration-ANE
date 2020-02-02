@@ -33,7 +33,8 @@ class KotlinController : FreKotlinMainController {
     private var packageInfo: PackageInfo? = null
     private var permissionsGranted = false
     private val permissionsNeeded: Array<String> = arrayOf(Manifest.permission.VIBRATE)
-
+    private val oneShot = "OneShot"
+    private val waveform = "Waveform"
     private fun hasRequiredPermissions(): Boolean {
         val pi = packageInfo ?: return false
         permissionsNeeded.forEach { p ->
@@ -55,23 +56,39 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun vibrate(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 2 } ?: return FreArgException()
-        val milliseconds = Long(argv[0]) ?: return null
-        val pattern = LongArray(argv[1]) ?: return null
-        val repeat = Int(argv[2]) ?: return null
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
+        val freVibe = argv[0]
+        val className = freVibe.className?.split("::")?.last() ?: return null
+        var milliseconds: Long = 0
+        var amplitude = 0
+        var timings = longArrayOf()
+        var amplitudes = intArrayOf()
+        var repeat = 0
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            when {
-                pattern.isEmpty() -> vibrator?.vibrate(VibrationEffect.createOneShot(milliseconds,
-                        VibrationEffect.DEFAULT_AMPLITUDE))
-                else -> vibrator?.vibrate(VibrationEffect.createWaveform(pattern, repeat))
+        when (className) {
+            oneShot -> {
+                milliseconds = Long(freVibe["milliseconds"]) ?: milliseconds
+                amplitude = Int(freVibe["amplitude"]) ?: amplitude
+            }
+            waveform -> {
+                timings = LongArray(freVibe["timings"]) ?: timings
+                amplitudes = IntArray(freVibe["amplitudes"])
+                repeat = Int(freVibe["repeat"]) ?: repeat
+            }
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) when (className) {
+            oneShot -> vibrator?.vibrate(VibrationEffect.createOneShot(milliseconds, amplitude))
+            waveform -> if (amplitudes.isEmpty()) {
+                vibrator?.vibrate(VibrationEffect.createWaveform(timings, repeat))
+            } else {
+                vibrator?.vibrate(VibrationEffect.createWaveform(timings, amplitudes, repeat))
             }
         } else {
-            when {
-                pattern.isEmpty() -> vibrator?.vibrate(milliseconds)
-                else -> vibrator?.vibrate(pattern, repeat)
+            when (className) {
+                oneShot -> vibrator?.vibrate(milliseconds)
+                waveform -> vibrator?.vibrate(timings, repeat)
             }
-
         }
         return null
     }
