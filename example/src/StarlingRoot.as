@@ -1,6 +1,6 @@
 package {
 
-import com.tuarua.VibrationANE;
+import com.tuarua.Vibrator;
 import com.tuarua.android;
 import com.tuarua.fre.ANEError;
 import com.tuarua.ios;
@@ -31,7 +31,7 @@ public class StarlingRoot extends Sprite {
     private var btnCancel:SimpleButton = new SimpleButton("Cancel Vibrate");
     private var btnTaptic:SimpleButton = new SimpleButton("Notification Taptic");
     private var btnHapticEngine:SimpleButton = new SimpleButton("Haptic Engine");
-    private var vibrator:VibrationANE;
+    private var vibrator:Vibrator;
     private var hapticEngine:HapticEngine;
 
     public function StarlingRoot() {
@@ -40,7 +40,7 @@ public class StarlingRoot extends Sprite {
     }
 
     public function start():void {
-        vibrator = VibrationANE.vibrator;
+        vibrator = Vibrator.shared();
         trace("vibrator.hasVibrator:", vibrator.hasVibrator);
         trace("vibrator.hasTapticEngine:", vibrator.hasTapticEngine);
         trace("vibrator.hasHapticFeedback:", vibrator.hasHapticFeedback);
@@ -169,7 +169,7 @@ public class StarlingRoot extends Sprite {
     }
 
     private function onExiting(event:Event):void {
-        VibrationANE.dispose();
+        Vibrator.dispose();
     }
 
 }

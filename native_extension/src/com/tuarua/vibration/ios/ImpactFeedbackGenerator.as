@@ -15,7 +15,6 @@
  */
 
 package com.tuarua.vibration.ios {
-import com.tuarua.VibrationANE;
 import com.tuarua.VibrationANEContext;
 import com.tuarua.fre.ANEError;
 
@@ -25,32 +24,28 @@ public class ImpactFeedbackGenerator {
 
     public function ImpactFeedbackGenerator(type:uint) {
         this.type = type;
-        if (!VibrationANE.safetyCheck()) return;
-        var theRet:* = VibrationANEContext.context.call("initImpact", type);
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = VibrationANEContext.context.call("initImpact", type);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /** Informs self that it will likely receive events soon, so that it can ensure minimal latency for
      * any feedback generated safe to call more than once before the generator receives an event,
      * if events are still imminently possible */
     public function prepare():void {
-        if (!VibrationANE.safetyCheck()) return;
-        var theRet:* = VibrationANEContext.context.call("prepareImpact", type);
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = VibrationANEContext.context.call("prepareImpact", type);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /** Release the ImpactFeedbackGenerator. */
     public function release():void {
-        if (!VibrationANE.safetyCheck()) return;
-        var theRet:* = VibrationANEContext.context.call("releaseImpact", type);
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = VibrationANEContext.context.call("releaseImpact", type);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /** Call when your UI element impacts something else */
     public function impactOccurred():void {
-        if (!VibrationANE.safetyCheck()) return;
-        var theRet:* = VibrationANEContext.context.call("impactOccurred", type);
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = VibrationANEContext.context.call("impactOccurred", type);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
 }

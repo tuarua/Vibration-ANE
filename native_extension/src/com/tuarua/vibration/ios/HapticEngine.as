@@ -1,5 +1,4 @@
 package com.tuarua.vibration.ios {
-import com.tuarua.VibrationANE;
 import com.tuarua.VibrationANEContext;
 import com.tuarua.fre.ANEError;
 
@@ -16,9 +15,8 @@ public class HapticEngine {
      * @throws An ANEError if the engine cannot be created
      * */
     public function HapticEngine() {
-        if (!VibrationANE.safetyCheck()) return;
-        var theRet:* = VibrationANEContext.context.call("initHapticEngine");
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = VibrationANEContext.context.call("initHapticEngine");
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
@@ -29,9 +27,8 @@ public class HapticEngine {
      * @param fileName The file name of the AHAP file containing the haptic event dictionary.
      * */
     public function playPattern(fileName:String):void {
-        if (!VibrationANE.safetyCheck()) return;
-        var theRet:* = VibrationANEContext.context.call("playPattern", fileName);
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = VibrationANEContext.context.call("playPattern", fileName);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
@@ -42,9 +39,8 @@ public class HapticEngine {
      * @throws An ANEError if the pattern cannot be played.
      * */
     public function start():void {
-        if (!VibrationANE.safetyCheck()) return;
-        var theRet:* = VibrationANEContext.context.call("startHapticEngine");
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = VibrationANEContext.context.call("startHapticEngine");
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
@@ -53,9 +49,8 @@ public class HapticEngine {
      * <p>The handler is guaranteed to be called on either success or failure.</p>
      * */
     public function stop():void {
-        if (!VibrationANE.safetyCheck()) return;
-        var theRet:* = VibrationANEContext.context.call("stopHapticEngine");
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = VibrationANEContext.context.call("stopHapticEngine");
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
@@ -66,10 +61,9 @@ public class HapticEngine {
      * Callbacks to this block arrive on a non-main thread, so handle them in a thread-safe manner.</p>
      * */
     public function set stoppedHandler(value:Function):void {
-        if (!VibrationANE.safetyCheck()) return;
-        var theRet:* = VibrationANEContext.context.call("stoppedHandler",
+        var ret:* = VibrationANEContext.context.call("stoppedHandler",
                 VibrationANEContext.createCallback(value));
-        if (theRet is ANEError) throw theRet as ANEError;
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
@@ -81,17 +75,15 @@ public class HapticEngine {
      * reset block.</p>
      * */
     public function set resetHandler(value:Function):void {
-        if (!VibrationANE.safetyCheck()) return;
-        var theRet:* = VibrationANEContext.context.call("resetHandler",
+        var ret:* = VibrationANEContext.context.call("resetHandler",
                 VibrationANEContext.createCallback(value));
-        if (theRet is ANEError) throw theRet as ANEError;
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
      * A Boolean value that indicates whether the device supports haptic event playback.
      * */
     public static function get supportsHaptics():Boolean {
-        if (!VibrationANE.safetyCheck()) return false;
         return VibrationANEContext.context.call("hasHapticEngine") as Boolean;
     }
 

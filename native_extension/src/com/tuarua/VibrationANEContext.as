@@ -26,7 +26,6 @@ public class VibrationANEContext {
     private static const HAPTIC_ENGINE_RESTART:String = "HapticEngineEvent.Restart";
     private static var _context:ExtensionContext;
     public static var callbacks:Dictionary = new Dictionary();
-    private static var _isDisposed:Boolean;
     private static var argsAsJSON:Object;
     public function VibrationANEContext() {
     }
@@ -35,7 +34,6 @@ public class VibrationANEContext {
             try {
                 _context = ExtensionContext.createExtensionContext("com.tuarua." + NAME, null);
                 _context.addEventListener(StatusEvent.STATUS, gotEvent);
-                _isDisposed = false;
             } catch (e:Error) {
                 throw new Error("ANE " + NAME + " not created properly.  Future calls will fail.");
             }
@@ -78,18 +76,12 @@ public class VibrationANEContext {
     }
 
     public static function dispose():void {
-        if (!_context) {
-            return;
-        }
-        _isDisposed = true;
+        if (!_context) return;
         trace("[" + NAME + "] Unloading ANE...");
         _context.removeEventListener(StatusEvent.STATUS, gotEvent);
         _context.dispose();
         _context = null;
     }
 
-    public static function get isDisposed():Boolean {
-        return _isDisposed;
-    }
 }
 }

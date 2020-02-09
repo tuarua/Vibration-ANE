@@ -270,7 +270,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		CEDDADE01FBFB84900D6EB5F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -283,7 +283,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = "../../../native_extension/ane/build_mobile.sh\n";
+			shellScript = "../../../native_extension/ane/build.sh\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
