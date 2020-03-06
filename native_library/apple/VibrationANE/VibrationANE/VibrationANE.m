@@ -17,7 +17,7 @@
 #import "VibrationANE_oc.h"
 #import <VibrationANE_FW/VibrationANE_FW.h>
 
-#define FRE_OBJC_BRIDGE TRVIB_FlashRuntimeExtensionsBridge // use unique prefix throughout to prevent clashes with other ANEs
+#define FRE_OBJC_BRIDGE TRVIB_FlashRuntimeExtensionsBridge
 @interface FRE_OBJC_BRIDGE : NSObject<FreSwiftBridgeProtocol>
 @end
 @implementation FRE_OBJC_BRIDGE {
@@ -26,14 +26,10 @@ FRE_OBJC_BRIDGE_FUNCS
 @end
 
 @implementation VibrationANE_LIB
-SWIFT_DECL(TRVIB) // use unique prefix throughout to prevent clashes with other ANEs
+SWIFT_DECL(TRVIB)
 CONTEXT_INIT(TRVIB) {
     SWIFT_INITS(TRVIB)
-    
-    /**************************************************************************/
-    /******* MAKE SURE TO ADD FUNCTIONS HERE THE SAME AS SWIFT CONTROLLER *****/
-    /**************************************************************************/
-    
+
     static FRENamedFunction extensionFunctions[] =
     {
          MAP_FUNCTION(TRVIB, init)
@@ -52,10 +48,14 @@ CONTEXT_INIT(TRVIB) {
         ,MAP_FUNCTION(TRVIB, selectionChanged)
         ,MAP_FUNCTION(TRVIB, hasHapticFeedback)
         ,MAP_FUNCTION(TRVIB, hasTapticEngine)
+        ,MAP_FUNCTION(TRVIB, hasHapticEngine)
+        ,MAP_FUNCTION(TRVIB, initHapticEngine)
+        ,MAP_FUNCTION(TRVIB, stoppedHandler)
+        ,MAP_FUNCTION(TRVIB, resetHandler)
+        ,MAP_FUNCTION(TRVIB, startHapticEngine)
+        ,MAP_FUNCTION(TRVIB, stopHapticEngine)
+        ,MAP_FUNCTION(TRVIB, playPattern)
     };
-    
-    /**************************************************************************/
-    /**************************************************************************/
     
     SET_FUNCTIONS
     

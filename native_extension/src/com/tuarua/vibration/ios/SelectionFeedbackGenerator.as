@@ -15,7 +15,6 @@
  */
 
 package com.tuarua.vibration.ios {
-import com.tuarua.VibrationANE;
 import com.tuarua.VibrationANEContext;
 import com.tuarua.fre.ANEError;
 
@@ -28,23 +27,20 @@ public class SelectionFeedbackGenerator {
      * any feedback generated safe to call more than once before the generator receives an event,
      * if events are still imminently possible */
     public function prepare():void {
-        if (!VibrationANE.safetyCheck()) return;
-        var theRet:* = VibrationANEContext.context.call("prepareSelection");
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = VibrationANEContext.context.call("prepareSelection");
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /** Release the SelectionFeedbackGenerator. */
     public function release():void {
-        if (!VibrationANE.safetyCheck()) return;
-        var theRet:* = VibrationANEContext.context.call("releaseSelection");
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = VibrationANEContext.context.call("releaseSelection");
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /** Call when the selection changes (not on initial selection) */
     public function selectionChanged():void {
-        if (!VibrationANE.safetyCheck()) return;
-        var theRet:* = VibrationANEContext.context.call("selectionChanged");
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = VibrationANEContext.context.call("selectionChanged");
+        if (ret is ANEError) throw ret as ANEError;
     }
 
 }

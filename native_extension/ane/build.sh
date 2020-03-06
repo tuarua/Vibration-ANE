@@ -1,7 +1,5 @@
 #!/bin/sh
 
-#Get the path to the script and trim to get the directory.
-echo "Setting path to current directory to:"
 pathtome=$0
 pathtome="${pathtome%/*}"
 
@@ -127,7 +125,7 @@ mv "$pathtome/platforms/android/res" "$pathtome/platforms/android/com.tuarua.$PR
 #Run the build command.
 echo "Building ANE."
 "$AIR_SDK"/bin/adt -package \
--target ane "$pathtome/$PROJECTNAME.ane" "$pathtome/extension_mobile.xml" \
+-target ane "$pathtome/$PROJECTNAME.ane" "$pathtome/extension.xml" \
 -swc "$pathtome/$PROJECTNAME.swc" \
 -platform Android-x86 \
 -C "$pathtome/platforms/android" "library.swf" "classes.jar" \

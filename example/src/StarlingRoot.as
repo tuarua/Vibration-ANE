@@ -1,11 +1,16 @@
 package {
 
-import com.tuarua.VibrationANE;
+import com.tuarua.Vibrator;
 import com.tuarua.android;
+import com.tuarua.fre.ANEError;
 import com.tuarua.ios;
 import com.tuarua.utils.os;
+import com.tuarua.vibration.android.OneShot;
+import com.tuarua.vibration.android.Waveform;
+import com.tuarua.vibration.ios.HapticEngine;
 import com.tuarua.vibration.ios.NotificationFeedbackGenerator;
 import com.tuarua.vibration.ios.NotificationFeedbackType;
+import com.tuarua.vibration.ios.StoppedReason;
 import com.tuarua.vibration.ios.SystemSoundID;
 
 import flash.desktop.NativeApplication;
@@ -25,7 +30,9 @@ public class StarlingRoot extends Sprite {
     private var btnRepeat:SimpleButton = new SimpleButton("Repeat Vibrate");
     private var btnCancel:SimpleButton = new SimpleButton("Cancel Vibrate");
     private var btnTaptic:SimpleButton = new SimpleButton("Notification Taptic");
-    private var vibrator:VibrationANE;
+    private var btnHapticEngine:SimpleButton = new SimpleButton("Haptic Engine");
+    private var vibrator:Vibrator;
+    private var hapticEngine:HapticEngine;
 
     public function StarlingRoot() {
         TextField.registerCompositor(Fonts.getFont("fira-sans-semi-bold-13"), "Fira Sans Semi-Bold 13");
@@ -33,10 +40,11 @@ public class StarlingRoot extends Sprite {
     }
 
     public function start():void {
-        vibrator = VibrationANE.vibrator;
-        trace("vibrator.hasVibrator", vibrator.hasVibrator);
-        trace("vibrator.hasTapticEngine", vibrator.hasTapticEngine);
-        trace("vibrator.hasHapticFeedback", vibrator.hasHapticFeedback);
+        vibrator = Vibrator.shared();
+        trace("vibrator.hasVibrator:", vibrator.hasVibrator);
+        trace("vibrator.hasTapticEngine:", vibrator.hasTapticEngine);
+        trace("vibrator.hasHapticFeedback:", vibrator.hasHapticFeedback);
+        trace("HapticEngine.supportsHaptics:", HapticEngine.supportsHaptics);
         if (vibrator.hasVibrator) {
             initMenu();
         }
@@ -66,6 +74,41 @@ public class StarlingRoot extends Sprite {
             btnTaptic.y = 180;
             btnTaptic.addEventListener(TouchEvent.TOUCH, onTapticClick);
             addChild(btnTaptic);
+
+            if (HapticEngine.supportsHaptics) {
+                try {
+                    hapticEngine = new HapticEngine();
+                } catch (e:ANEError) {
+                    trace(e.message);
+                    return;
+                }
+                hapticEngine.stoppedHandler = function (reason:int):void {
+                    switch (reason) {
+                        case StoppedReason.applicationSuspended:
+                            break;
+                        case StoppedReason.audioSessionInterrupt:
+                            break;
+                        case StoppedReason.idleTimeout:
+                            break;
+                        case StoppedReason.notifyWhenFinished:
+                            break;
+                        case StoppedReason.systemError:
+                            break;
+                    }
+                };
+                hapticEngine.resetHandler = function ():void {
+                    try {
+                        trace("The engine reset --> Restarting now!");
+                        hapticEngine.start();
+                    } catch (e:ANEError) {
+                        trace(e.message);
+                    }
+                };
+                btnHapticEngine.y = 260;
+                btnHapticEngine.addEventListener(TouchEvent.TOUCH, onHapticEngineClick);
+                addChild(btnHapticEngine);
+            }
+
         }
     }
 
@@ -83,7 +126,7 @@ public class StarlingRoot extends Sprite {
         var touch:Touch = event.getTouch(btnSimple);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
             if (os.isAndroid) {
-                vibrator.android::vibrate(150);
+                vibrator.android::vibrate(new OneShot(150));
             } else if (os.isIos) {
                 vibrator.ios::vibrate(vibrator.hasTapticEngine ? SystemSoundID.POP : SystemSoundID.DEFAULT);
             }
@@ -93,7 +136,7 @@ public class StarlingRoot extends Sprite {
     private function onMultiClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnMulti);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
-            vibrator.android::vibrate(0, [0, 100, 1000, 300]);
+            vibrator.android::vibrate(new Waveform([0, 100, 1000, 300]));
         }
     }
 
@@ -101,7 +144,7 @@ public class StarlingRoot extends Sprite {
         var touch:Touch = event.getTouch(btnRepeat);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
             btnCancel.visible = true;
-            vibrator.android::vibrate(0, [0, 100, 2000, 500], 0);
+            vibrator.android::vibrate(new Waveform([0, 100, 1000, 300], null, 0));
         }
     }
 
@@ -113,8 +156,20 @@ public class StarlingRoot extends Sprite {
         }
     }
 
+    private function onHapticEngineClick(event:TouchEvent):void {
+        var touch:Touch = event.getTouch(btnHapticEngine);
+        if (touch != null && touch.phase == TouchPhase.ENDED) {
+            try {
+                hapticEngine.start();
+                hapticEngine.playPattern("AHAP/Heartbeats");
+            } catch (e:ANEError) {
+                trace(e.message);
+            }
+        }
+    }
+
     private function onExiting(event:Event):void {
-        VibrationANE.dispose();
+        Vibrator.dispose();
     }
 
 }

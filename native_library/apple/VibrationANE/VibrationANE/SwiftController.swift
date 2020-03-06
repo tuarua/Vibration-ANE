@@ -25,6 +25,9 @@ public class SwiftController: NSObject {
     @available(iOS 10.0, *)
     lazy var tapticController: TapticController = TapticController()
     
+    @available(iOS 13.0, *)
+    lazy var hapticEngineController: HapticEngineController? = nil
+    
     private var isPhone: Bool {
         let deviceIdiom = UIScreen.main.traitCollection.userInterfaceIdiom
         switch deviceIdiom {
@@ -43,7 +46,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let systemSound = Int(argv[0])
             else {
-                return FreArgError(message: "vibrate").getError(#file, #line, #column)
+                return FreArgError().getError()
         }
         
         var systemSoundID = SystemSoundID(kSystemSoundID_Vibrate)
@@ -78,7 +81,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let type = Int(argv[0])
             else {
-                return FreArgError(message: "notificationOccurred").getError(#file, #line, #column)
+                return FreArgError().getError()
         }
         guard #available(iOS 10.0, *), isPhone, UIDevice.current.hasHapticFeedback else { return nil }
         tapticController.notificationOccurred(type: type)
@@ -90,7 +93,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let type = Int(argv[0])
             else {
-                return FreArgError(message: "initImpact").getError(#file, #line, #column)
+                return FreArgError().getError()
         }
         tapticController.initImpact(type: type)
         return nil
@@ -101,7 +104,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let type = Int(argv[0])
             else {
-                return FreArgError(message: "prepareImpact").getError(#file, #line, #column)
+                return FreArgError().getError()
         }
         tapticController.prepareImpact(type: type)
         return nil
@@ -112,7 +115,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let type = Int(argv[0])
             else {
-                return FreArgError(message: "prepareImpact").getError(#file, #line, #column)
+                return FreArgError().getError()
         }
         tapticController.releaseImpact(type: type)
         return nil
@@ -123,7 +126,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let type = Int(argv[0])
             else {
-                return FreArgError(message: "impactOccurred").getError(#file, #line, #column)
+                return FreArgError().getError()
         }
         tapticController.impactOccurred(type: type)
         return nil
@@ -153,6 +156,77 @@ public class SwiftController: NSObject {
     
     func hasTapticEngine(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         return UIDevice.current.hasTapticEngine.toFREObject()
+    }
+    
+    func hasHapticEngine(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        guard #available(iOS 13.0, *) else { return false.toFREObject()}
+        return hapticEngineController?.supportsHaptics.toFREObject()
+    }
+    
+    func initHapticEngine(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        guard #available(iOS 13.0, *) else { return nil }
+        hapticEngineController = HapticEngineController(ctx: self.context)
+        if let error = hapticEngineController?.createEngine() {
+            return FreError(message: error, type: FreError.Code.ok).getError()
+        }
+        return nil
+    }
+    
+    func stoppedHandler(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        guard #available(iOS 13.0, *) else { return nil }
+        guard argc > 0,
+            let callbackId = String(argv[0])
+            else {
+                return FreArgError().getError()
+        }
+        hapticEngineController?.stoppedCallbackId = callbackId
+        return nil
+    }
+    
+    func resetHandler(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        guard #available(iOS 13.0, *) else { return nil }
+        guard argc > 0,
+            let callbackId = String(argv[0])
+            else {
+                return FreArgError().getError()
+        }
+        hapticEngineController?.resetCallbackId = callbackId
+        return nil
+    }
+    
+    func startHapticEngine(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        guard #available(iOS 13.0, *) else { return nil }
+        if let error = hapticEngineController?.start() {
+            return FreError(message: error, type: FreError.Code.ok).getError()
+        }
+        return nil
+    }
+    
+    func stopHapticEngine(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        guard #available(iOS 13.0, *) else { return nil }
+        if let error = hapticEngineController?.stop() {
+            return FreError(message: error, type: FreError.Code.ok).getError()
+        }
+        return nil
+    }
+    
+    func playPattern(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        guard #available(iOS 13.0, *),
+            let hapticEngineController = hapticEngineController,
+            hapticEngineController.supportsHaptics
+            else {
+                return FreError(message: "error", type: FreError.Code.ok).getError()
+        }
+        guard argc > 0,
+            let filename = String(argv[0]),
+            let path = Bundle.main.path(forResource: filename, ofType: "ahap")
+            else {
+                return FreArgError().getError()
+        }
+        if let error = hapticEngineController.playPattern(path: path) {
+            return FreError(message: error, type: FreError.Code.ok).getError()
+        }
+        return nil
     }
     
     @objc public func dispose() {

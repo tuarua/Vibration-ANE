@@ -3,22 +3,25 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9055E18E217141C80006CD4C /* TapticController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9055E18D217141C80006CD4C /* TapticController.swift */; };
-		906787BF217017D200100455 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906787BE217017D200100455 /* UIDevice.swift */; };
-		CE05603F1FB25CE200D06976 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
-		CE0560401FB25CE200D06976 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
-		CE0560431FB25D1B00D06976 /* SwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0560411FB25D1B00D06976 /* SwiftController.swift */; };
-		CE0560451FB25DD000D06976 /* VibrationANE_FW.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE87F4831FB259FA005CF7DF /* VibrationANE_FW.framework */; };
+		901D78F023E376D500C92385 /* HapticEngineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901D78EF23E376D500C92385 /* HapticEngineController.swift */; };
+		9055E18E217141C80006CD4C /* TapticController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9055E18D217141C80006CD4C /* TapticController.swift */; platformFilter = ios; };
+		906787BF217017D200100455 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906787BE217017D200100455 /* UIDevice.swift */; platformFilter = ios; };
+		90884CD823E4C2F10071FEC4 /* HapticEngineEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90884CD723E4C2F10071FEC4 /* HapticEngineEvent.swift */; };
+		90884CDB23E4C4CF0071FEC4 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 90884CDA23E4C4CF0071FEC4 /* SwiftyJSON */; };
+		CE05603F1FB25CE200D06976 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; platformFilter = ios; };
+		CE0560401FB25CE200D06976 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; platformFilter = ios; };
+		CE0560431FB25D1B00D06976 /* SwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0560411FB25D1B00D06976 /* SwiftController.swift */; platformFilter = ios; };
+		CE0560451FB25DD000D06976 /* VibrationANE_FW.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE87F4831FB259FA005CF7DF /* VibrationANE_FW.framework */; platformFilter = ios; };
 		CE05604A1FB25DF600D06976 /* VibrationANE_oc.h in Headers */ = {isa = PBXBuildFile; fileRef = CE87F4771FB259DB005CF7DF /* VibrationANE_oc.h */; };
 		CE05604E1FB25E8E00D06976 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
-		CE05604F1FB25E9F00D06976 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
-		CE87F4871FB259FA005CF7DF /* VibrationANE_FW.h in Headers */ = {isa = PBXBuildFile; fileRef = CE87F4851FB259FA005CF7DF /* VibrationANE_FW.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CEBD78C92057198700ABE05A /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBD78C82057198700ABE05A /* SwiftController+FreSwift.swift */; };
-		CEBD78CB20571A5200ABE05A /* VibrationANE.m in Sources */ = {isa = PBXBuildFile; fileRef = CE87F4781FB259DB005CF7DF /* VibrationANE.m */; };
+		CE05604F1FB25E9F00D06976 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; platformFilter = ios; };
+		CE87F4871FB259FA005CF7DF /* VibrationANE_FW.h in Headers */ = {isa = PBXBuildFile; fileRef = CE87F4851FB259FA005CF7DF /* VibrationANE_FW.h */; platformFilter = ios; settings = {ATTRIBUTES = (Public, ); }; };
+		CEBD78C92057198700ABE05A /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBD78C82057198700ABE05A /* SwiftController+FreSwift.swift */; platformFilter = ios; };
+		CEBD78CB20571A5200ABE05A /* VibrationANE.m in Sources */ = {isa = PBXBuildFile; fileRef = CE87F4781FB259DB005CF7DF /* VibrationANE.m */; platformFilter = ios; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,8 +35,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		901D78EF23E376D500C92385 /* HapticEngineController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticEngineController.swift; sourceTree = "<group>"; };
 		9055E18D217141C80006CD4C /* TapticController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapticController.swift; sourceTree = "<group>"; };
 		906787BE217017D200100455 /* UIDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
+		90884CD723E4C2F10071FEC4 /* HapticEngineEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticEngineEvent.swift; sourceTree = "<group>"; };
 		CE05603E1FB25CE200D06976 /* FreSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FreSwift.framework; path = Carthage/Build/iOS/FreSwift.framework; sourceTree = "<group>"; };
 		CE0560411FB25D1B00D06976 /* SwiftController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftController.swift; sourceTree = "<group>"; };
 		CE05604D1FB25E8E00D06976 /* FreMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreMacros.h; sourceTree = "<group>"; };
@@ -61,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90884CDB23E4C4CF0071FEC4 /* SwiftyJSON in Frameworks */,
 				CE0560401FB25CE200D06976 /* FreSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -74,6 +80,14 @@
 				906787BE217017D200100455 /* UIDevice.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		90884CD623E4C2D60071FEC4 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				90884CD723E4C2F10071FEC4 /* HapticEngineEvent.swift */,
+			);
+			path = Events;
 			sourceTree = "<group>";
 		};
 		CE05603D1FB25CD100D06976 /* Frameworks */ = {
@@ -106,6 +120,7 @@
 		CEBD78C52057192600ABE05A /* VibrationANE */ = {
 			isa = PBXGroup;
 			children = (
+				90884CD623E4C2D60071FEC4 /* Events */,
 				906787BD217017BE00100455 /* Extensions */,
 				CEBD78C72057195500ABE05A /* Misc */,
 				CEBD78C62057194000ABE05A /* Headers */,
@@ -113,6 +128,7 @@
 				CE87F4781FB259DB005CF7DF /* VibrationANE.m */,
 				CEBD78C82057198700ABE05A /* SwiftController+FreSwift.swift */,
 				9055E18D217141C80006CD4C /* TapticController.swift */,
+				901D78EF23E376D500C92385 /* HapticEngineController.swift */,
 			);
 			path = VibrationANE;
 			sourceTree = "<group>";
@@ -192,6 +208,9 @@
 			dependencies = (
 			);
 			name = VibrationANE_FW;
+			packageProductDependencies = (
+				90884CDA23E4C4CF0071FEC4 /* SwiftyJSON */,
+			);
 			productName = HelloWorldANE_FW;
 			productReference = CE87F4831FB259FA005CF7DF /* VibrationANE_FW.framework */;
 			productType = "com.apple.product-type.framework";
@@ -202,7 +221,7 @@
 		CE87F45D1FB259C9005CF7DF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1120;
 				ORGANIZATIONNAME = "Tua Rua Ltd";
 				TargetAttributes = {
 					CE87F4741FB259DB005CF7DF = {
@@ -212,19 +231,23 @@
 					};
 					CE87F4821FB259FA005CF7DF = {
 						CreatedOnToolsVersion = 8.3;
-						LastSwiftMigration = 0910;
+						LastSwiftMigration = 1120;
 						ProvisioningStyle = Manual;
 					};
 				};
 			};
 			buildConfigurationList = CE87F4601FB259C9005CF7DF /* Build configuration list for PBXProject "VibrationANE" */;
 			compatibilityVersion = "Xcode 8.0";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = CE87F45C1FB259C9005CF7DF;
+			packageReferences = (
+				90884CD923E4C4CF0071FEC4 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+			);
 			productRefGroup = CE87F4661FB259C9005CF7DF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -247,7 +270,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		CEDDADE01FBFB84900D6EB5F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -260,7 +283,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = "../../../native_extension/ane/build_mobile.sh\n";
+			shellScript = "../../../native_extension/ane/build.sh\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -279,6 +302,8 @@
 			files = (
 				CE0560431FB25D1B00D06976 /* SwiftController.swift in Sources */,
 				906787BF217017D200100455 /* UIDevice.swift in Sources */,
+				901D78F023E376D500C92385 /* HapticEngineController.swift in Sources */,
+				90884CD823E4C2F10071FEC4 /* HapticEngineEvent.swift in Sources */,
 				9055E18E217141C80006CD4C /* TapticController.swift in Sources */,
 				CEBD78C92057198700ABE05A /* SwiftController+FreSwift.swift in Sources */,
 			);
@@ -289,6 +314,7 @@
 /* Begin PBXTargetDependency section */
 		CE0560471FB25DD600D06976 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = CE87F4821FB259FA005CF7DF /* VibrationANE_FW */;
 			targetProxy = CE0560461FB25DD600D06976 /* PBXContainerItemProxy */;
 		};
@@ -298,7 +324,9 @@
 		CE87F46C1FB259C9005CF7DF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -356,7 +384,9 @@
 		CE87F46D1FB259C9005CF7DF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -401,7 +431,8 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -409,6 +440,7 @@
 		CE87F47C1FB259DB005CF7DF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
@@ -420,7 +452,11 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -432,6 +468,7 @@
 		CE87F47D1FB259DB005CF7DF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
@@ -443,7 +480,11 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -454,7 +495,7 @@
 		CE87F4891FB259FA005CF7DF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
@@ -473,7 +514,11 @@
 				INFOPLIST_FILE = "$(SRCROOT)/VibrationANE/Misc/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tuarua.VibrationANE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -482,7 +527,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -492,7 +537,7 @@
 		CE87F48A1FB259FA005CF7DF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
@@ -511,15 +556,20 @@
 				INFOPLIST_FILE = "$(SRCROOT)/VibrationANE/Misc/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tuarua.VibrationANE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -557,6 +607,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		90884CD923E4C4CF0071FEC4 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		90884CDA23E4C4CF0071FEC4 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 90884CD923E4C4CF0071FEC4 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CE87F45D1FB259C9005CF7DF /* Project object */;
 }

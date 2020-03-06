@@ -16,8 +16,6 @@ import Foundation
 import FreSwift
 
 extension SwiftController: FreSwiftMainController {
-    // must have this function !!
-    // Make sure these funcs match those in MLANE.m
     @objc public func getFunctions(prefix: String) -> [String] {
         functionsToSet["\(prefix)init"] = initController
         functionsToSet["\(prefix)vibrate"] = vibrate
@@ -35,6 +33,13 @@ extension SwiftController: FreSwiftMainController {
         functionsToSet["\(prefix)selectionChanged"] = selectionChanged
         functionsToSet["\(prefix)hasHapticFeedback"] = hasHapticFeedback
         functionsToSet["\(prefix)hasTapticEngine"] = hasTapticEngine
+        functionsToSet["\(prefix)hasHapticEngine"] = hasHapticEngine
+        functionsToSet["\(prefix)initHapticEngine"] = initHapticEngine
+        functionsToSet["\(prefix)stoppedHandler"] = stoppedHandler
+        functionsToSet["\(prefix)resetHandler"] = resetHandler
+        functionsToSet["\(prefix)startHapticEngine"] = startHapticEngine
+        functionsToSet["\(prefix)stopHapticEngine"] = stopHapticEngine
+        functionsToSet["\(prefix)playPattern"] = playPattern
 
         var arr: [String] = []
         for key in functionsToSet.keys {
@@ -44,7 +49,6 @@ extension SwiftController: FreSwiftMainController {
         return arr
     }
     
-    // Must have this function. It exposes the methods to our entry ObjC.
     @objc public func callSwiftFunction(name: String, ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         if let fm = functionsToSet[name] {
             return fm(ctx, argc, argv)
@@ -53,7 +57,7 @@ extension SwiftController: FreSwiftMainController {
     }
     
     @objc public func setFREContext(ctx: FREContext) {
-        self.context = FreContextSwift.init(freContext: ctx)
+        self.context = FreContextSwift(freContext: ctx)
     }
     
     @objc public func onLoad() {

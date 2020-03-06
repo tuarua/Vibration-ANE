@@ -1,3 +1,9 @@
+### 1.3.0
+- AND: Updated to FreKotlin 1.9.5
+- ANE: `vibrator.android::vibrate()` now takes `VibrationEffect` param
+- iOS: Updated to FreSwift 4.3.0
+- iOS: Add HapticEngine support for iOS 13.0+
+
 ### 1.2.0
 - AND: Updated to FreKotlin 1.8.0
 - Updated to AIR 33 ARM 64bit

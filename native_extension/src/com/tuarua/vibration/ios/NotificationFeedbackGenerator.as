@@ -15,7 +15,6 @@
  */
 
 package com.tuarua.vibration.ios {
-import com.tuarua.VibrationANE;
 import com.tuarua.VibrationANEContext;
 import com.tuarua.fre.ANEError;
 
@@ -28,23 +27,20 @@ public class NotificationFeedbackGenerator {
      * any feedback generated safe to call more than once before the generator receives an event,
      * if events are still imminently possible */
     public function prepare():void {
-        if (!VibrationANE.safetyCheck()) return;
-        var theRet:* = VibrationANEContext.context.call("prepareNotification");
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = VibrationANEContext.context.call("prepareNotification");
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /** Release the NotificationFeedbackGenerator.*/
     public function release():void {
-        if (!VibrationANE.safetyCheck()) return;
-        var theRet:* = VibrationANEContext.context.call("releaseNotification");
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = VibrationANEContext.context.call("releaseNotification");
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /** Call when a notification is displayed, passing the corresponding type */
     public function notificationOccurred(notificationType:uint):void {
-        if (!VibrationANE.safetyCheck()) return;
-        var theRet:* = VibrationANEContext.context.call("notificationOccurred", notificationType);
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = VibrationANEContext.context.call("notificationOccurred", notificationType);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
 

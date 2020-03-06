@@ -39,8 +39,14 @@ public class VibrationANE implements FREExtension {
             ,"selectionChanged"
             ,"hasHapticFeedback"
             ,"hasTapticEngine"
+            ,"hasHapticEngine"
+            ,"initHapticEngine"
+            ,"stoppedHandler"
+            ,"resetHandler"
+            ,"startHapticEngine"
+            ,"stopHapticEngine"
+            ,"playPattern"
     };
-    
 
     public static VibrationANEContext extensionContext;
 
