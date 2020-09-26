@@ -1,0 +1,15 @@
+{
+  "name": "vibration-sample",
+  "version": "1.5.0",
+  "appDescriptor": "src/Main-app.xml",
+  "variables": {
+  },
+  "airDotPrefix": true,
+  "appleTeamId": "XXXXXX",
+  "repository": {
+    "url": "https://tuarua.github.io/air/air_packages.json"
+  },
+  "dependencies": {
+    "com.tuarua.VibrationANE": "1.5.0"
+  }
+}
