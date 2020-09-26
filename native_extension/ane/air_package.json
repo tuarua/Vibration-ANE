@@ -1,0 +1,12 @@
+{
+  "name": "com.tuarua.VibrationANE",
+  "version": "1.5.0",
+  "repository": {
+    "url": "https://tuarua.github.io/air/air_packages.json"
+  },
+  "dependencies": {
+    "com.tuarua.frekotlin": "1.40.0",
+    "com.tuarua.iOS.FreSwift": "4.5.0",
+    "com.tuarua.VibrationANE.IosDependencies": "1.5.0"
+  }
+}
