@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		901D78F023E376D500C92385 /* HapticEngineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901D78EF23E376D500C92385 /* HapticEngineController.swift */; };
+		901D78F023E376D500C92385 /* HapticEngineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901D78EF23E376D500C92385 /* HapticEngineController.swift */; platformFilter = ios; };
 		9055E18E217141C80006CD4C /* TapticController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9055E18D217141C80006CD4C /* TapticController.swift */; platformFilter = ios; };
 		906787BF217017D200100455 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906787BE217017D200100455 /* UIDevice.swift */; platformFilter = ios; };
-		90884CD823E4C2F10071FEC4 /* HapticEngineEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90884CD723E4C2F10071FEC4 /* HapticEngineEvent.swift */; };
-		90884CDB23E4C4CF0071FEC4 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 90884CDA23E4C4CF0071FEC4 /* SwiftyJSON */; };
+		90884CD823E4C2F10071FEC4 /* HapticEngineEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90884CD723E4C2F10071FEC4 /* HapticEngineEvent.swift */; platformFilter = ios; };
+		90884CDB23E4C4CF0071FEC4 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; platformFilter = ios; productRef = 90884CDA23E4C4CF0071FEC4 /* SwiftyJSON */; };
 		CE05603F1FB25CE200D06976 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; platformFilter = ios; };
 		CE0560401FB25CE200D06976 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; platformFilter = ios; };
 		CE0560431FB25D1B00D06976 /* SwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0560411FB25D1B00D06976 /* SwiftController.swift */; platformFilter = ios; };
@@ -221,7 +221,7 @@
 		CE87F45D1FB259C9005CF7DF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1120;
+				LastUpgradeCheck = 1210;
 				ORGANIZATIONNAME = "Tua Rua Ltd";
 				TargetAttributes = {
 					CE87F4741FB259DB005CF7DF = {
@@ -348,6 +348,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -408,6 +409,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -475,6 +477,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -549,6 +552,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
