@@ -16,7 +16,6 @@
 import Foundation
 import AudioToolbox
 
-@available(iOS 10.0, *)
 class TapticController: NSObject {
     var notificationFeedbackGenerator: UINotificationFeedbackGenerator?
     var lightImpactFeedbackGenerator: UIImpactFeedbackGenerator?

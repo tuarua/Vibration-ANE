@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<application xmlns="http://ns.adobe.com/air/application/33.1">
+<application xmlns="http://ns.adobe.com/air/application/50.1">
 
 	<id>com.tuarua.vibrationanesample</id>
 	<filename>VibrationANESample</filename>
 	<name>VibrationANESample</name>
-	<versionNumber>1.7.0</versionNumber>
+	<versionNumber>1.8.0</versionNumber>
 
 
 	<initialWindow>
@@ -30,7 +30,7 @@
 <android>
         <manifestAdditions><![CDATA[
             <manifest android:installLocation="auto">
-                <uses-sdk android:minSdkVersion="19" android:targetSdkVersion="29" />
+                <uses-sdk android:minSdkVersion="19" android:targetSdkVersion="31" />
                 <uses-permission android:name="android.permission.INTERNET"/>
                 <uses-permission android:name="android.permission.VIBRATE"/>
                 <application android:enabled="true">
@@ -57,7 +57,7 @@
                 <string>2</string>
             </array>
             <key>MinimumOSVersion</key>
-            <string>9.0</string>
+            <string>13.0</string>
             ]]>
         </InfoAdditions>
         <requestedDisplayResolution>high</requestedDisplayResolution>

@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/VibrationANE.iml" filepath="$PROJECT_DIR$/VibrationANE.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/VibrationANE.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/VibrationANE.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/VibrationANE.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/VibrationANE.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/VibrationANE.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/VibrationANE.app.unitTest.iml" />
     </modules>
   </component>
 </project>

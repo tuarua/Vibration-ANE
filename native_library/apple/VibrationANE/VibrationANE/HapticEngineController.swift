@@ -16,7 +16,6 @@
 import Foundation
 import CoreHaptics
 
-@available(iOS 13.0, *)
 class HapticEngineController: FreSwiftController {
     var context: FreContextSwift!
     static var TAG: String = "HapticEngineController"

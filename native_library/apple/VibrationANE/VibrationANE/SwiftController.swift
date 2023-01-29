@@ -21,11 +21,7 @@ public class SwiftController: NSObject {
     public static var TAG = "SwiftController"
     public var context: FreContextSwift!
     public var functionsToSet: FREFunctionMap = [:]
-    
-    @available(iOS 10.0, *)
     lazy var tapticController: TapticController = TapticController()
-    
-    @available(iOS 13.0, *)
     lazy var hapticEngineController: HapticEngineController? = nil
     
     private var isPhone: Bool {

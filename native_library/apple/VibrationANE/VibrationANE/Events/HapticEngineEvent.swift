@@ -18,7 +18,6 @@ import Foundation
 import CoreHaptics
 import SwiftyJSON
 
-@available(iOS 13.0, *)
 class HapticEngineEvent: NSObject {
     public static let HAPTIC_ENGINE_STOPPED = "HapticEngineEvent.Stopped"
     public static let HAPTIC_ENGINE_RESTART = "HapticEngineEvent.Restart"
